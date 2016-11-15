@@ -23,7 +23,7 @@ kde-misc/krusader 9999-r1: An advanced twin-panel (commander-style) file-manager
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
-media-video/qmplay2 16.09.04 16.09.21 16.09.24 9999: Qt-based video player, which can play all formats and stream
+media-video/qmplay2 16.11.01 9999: Qt-based video player, which can play all formats and stream
 net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
