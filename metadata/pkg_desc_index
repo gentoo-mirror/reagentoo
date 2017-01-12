@@ -1,4 +1,6 @@
 app-editors/ghostwriter 1.4.1 1.4.2 9999: A cross-platform, aesthetic, distraction-free Markdown editor
+dev-cpp/asio 9999: Asynchronous Network Library
+dev-cpp/kashmir 9999: Library is intended to provide functionality needed in many software projects, but not present in the C++ standard library.
 dev-libs/LND 9999: Linux file dialog implementations dedicated for Unreal Engine
 dev-libs/blocks-runtime 0.4.1 9999: Blocks runtime for libdispatch-objc2
 dev-libs/fluid 0.8.0 9999: Modules for fluid and dynamic applications development with QtQuick
@@ -30,7 +32,7 @@ media-video/webcamoid 9999: A full featured webcam capture application
 net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
-net-libs/restbed 4.0 9999: Restbed is a comprehensive and consistent programming model for building applications that require seamless and secure communication over HTTP
+net-libs/restbed 9999: Restbed is a comprehensive and consistent programming model for building applications that require seamless and secure communication over HTTP
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware

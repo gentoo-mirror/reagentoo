@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-cpp/asio dev-cpp/catch ssl? ( dev-libs/openssl ) sys-libs/pam sys-libs/zlib sys-devel/make >=dev-util/cmake-3.5.2 >=dev-vcs/git-1.8.2.1
+DEPEND=>=dev-cpp/asio-1.11.0 dev-cpp/kashmir sys-libs/zlib examples? ( sys-libs/pam virtual/logger ) ssl? ( dev-libs/openssl ) test? ( dev-cpp/catch ) sys-devel/make >=dev-util/cmake-3.5.2 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Restbed is a comprehensive and consistent programming model for building applications that require seamless and secure communication over HTTP
 EAPI=6
 HOMEPAGE=https://github.com/Corvusoft/restbed
 IUSE=examples ssl static-libs test
 LICENSE=AGPL
-RDEPEND=dev-cpp/asio dev-cpp/catch ssl? ( dev-libs/openssl ) sys-libs/pam sys-libs/zlib
+RDEPEND=>=dev-cpp/asio-1.11.0 dev-cpp/kashmir sys-libs/zlib examples? ( sys-libs/pam virtual/logger ) ssl? ( dev-libs/openssl ) test? ( dev-cpp/catch )
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_prepare:- src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
 _eclasses_=cmake-utils	fa4d8052a1ccf4fbbfa76361bffebe42	eutils	017377e73405d964cd0137088cddb9c3	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	66b3bf714f8cfc1b6494db5269b4666e	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=72d0f97d5295d937d28366098a6da01a
+_md5_=caf4b2e2a53d0e7e61dae0626a644f52
