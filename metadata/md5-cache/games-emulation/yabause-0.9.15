@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/libXrandr ffmpeg? ( media-video/ffmpeg ) openal? ( media-libs/openal ) opengl? ( media-libs/freeglut virtual/glu virtual/opengl ) qt5? ( dev-qt/qtcore:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5 ) ) !qt5? ( dev-libs/glib:2 x11-libs/gtk+:2 x11-libs/gtkglext ) sdl? ( media-libs/libsdl2[opengl?,video] ) sys-devel/clang virtual/pkgconfig sys-devel/make >=dev-util/cmake-3.6.3
+DEPEND=x11-libs/libXrandr ffmpeg? ( media-video/ffmpeg ) openal? ( media-libs/openal ) opengl? ( media-libs/freeglut virtual/glu virtual/opengl ) qt5? ( dev-qt/qtcore:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5 ) ) !qt5? ( dev-libs/glib:2 x11-libs/gtk+:2 x11-libs/gtkglext ) sdl? ( media-libs/libsdl2[opengl?,video] ) sys-devel/clang virtual/pkgconfig sys-devel/make >=dev-util/cmake-3.7.2
 DESCRIPTION=A Sega Saturn emulator
 EAPI=6
 HOMEPAGE=https://yabause.org/
@@ -10,5 +10,5 @@ RDEPEND=x11-libs/libXrandr ffmpeg? ( media-video/ffmpeg ) openal? ( media-libs/o
 SLOT=0
 SRC_URI=https://download.tuxfamily.org/yabause/releases/0.9.15/yabause-0.9.15.tar.gz
 _eclass_exported_funcs=src_prepare:- src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
-_eclasses_=cmake-utils	dd1d263f83f0791bd433b134f40db39b	eutils	3c847a0129fed780bd709b98e426f89c	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	multilib	0236be304ee52e7f179ed2f337075515	multiprocessing	284a473719153462f3e974d86c8cb81c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_eclasses_=cmake-utils	a69f3a404abc4ade0a99e523f51b989d	eutils	3c847a0129fed780bd709b98e426f89c	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	multilib	0236be304ee52e7f179ed2f337075515	multiprocessing	284a473719153462f3e974d86c8cb81c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	versionator	c80ccf29e90adea7c5cae94b42eb76d0
 _md5_=df4ddf0e1cf713d14763524a86cb16c9
