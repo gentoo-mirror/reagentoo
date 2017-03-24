@@ -3,11 +3,11 @@ DEPEND=media-libs/mesa >=media-video/ffmpeg-2.2.0:= gme? ( media-libs/game-music
 DESCRIPTION=Qt-based video player, which can play all formats and stream
 EAPI=6
 HOMEPAGE=https://github.com/zaps166/QMPlay2
-IUSE=alsa cdio +ffmpeg gme jemalloc libass modplug mpris opengl portaudio -pulseaudio qt4 +qt5 sid taglib vaapi vdpau +xv +avdevice -avresample +audiofilters cuvid extensions inputs lastfm notifications prostopleer +videofilters visualizations linguas_de linguas_es linguas_fr linguas_pl linguas_ru linguas_zh
+IUSE=alsa cdio +ffmpeg gme jemalloc libass modplug mpris opengl portaudio -pulseaudio qt4 +qt5 sid taglib vaapi vdpau +xv +avdevice -avresample +audiofilters cuvid extensions inputs lastfm notifications prostopleer soundcloud +videofilters visualizations wbijam linguas_de linguas_es linguas_fr linguas_pl linguas_ru linguas_zh
 LICENSE=LGPL
 RDEPEND=media-libs/mesa >=media-video/ffmpeg-2.2.0:= gme? ( media-libs/game-music-emu ) cdio? ( dev-libs/libcdio[cddb] ) jemalloc? ( dev-libs/jemalloc ) libass? ( media-libs/libass ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) qt4? ( dev-qt/qtcore:4 dev-qt/qtgui:4 opengl? ( dev-qt/qtopengl:4 ) ) qt5? ( >=dev-qt/qtcore-5.6.1:5 >=dev-qt/qtgui-5.6.1:5 >=dev-qt/qtwidgets-5.6.1:5 ) sid? ( media-libs/libsidplayfp ) taglib? ( >=media-libs/taglib-1.9.1 ) vaapi? ( x11-libs/libva[opengl,X] ) vdpau? ( x11-libs/libvdpau ) xv? ( x11-libs/libXv )
 REQUIRED_USE=^^ ( qt4 qt5 ) avdevice? ( ffmpeg ) mpris? ( extensions ) vaapi? ( ffmpeg ) vdpau? ( ffmpeg )
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_prepare:cmake-utils src_configure:- src_compile:cmake-utils src_test:cmake-utils src_install:cmake-utils
 _eclasses_=cmake-utils	a69f3a404abc4ade0a99e523f51b989d	epatch	122e1264e67c4f59a1482f2095e0b35d	estack	5ac2a138d0b33354b764d84f9e835db8	eutils	1ef31aee2bd63ffbfcae8a1843c9208d	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	git-r3	68d35a154123e27007638d8220886ee1	l10n	8f52d9ce1814aca2ed1a46920084ea66	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	0236be304ee52e7f179ed2f337075515	multiprocessing	284a473719153462f3e974d86c8cb81c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	versionator	c80ccf29e90adea7c5cae94b42eb76d0
-_md5_=4922516dfca60cdcbfb91431e56055b3
+_md5_=f7dfc4544b7fb70041587dbf8ec5e264
