@@ -1,4 +1,4 @@
-app-editors/ghostwriter 1.4.1 1.4.2 9999: A cross-platform, aesthetic, distraction-free Markdown editor
+app-editors/ghostwriter 1.5.0 9999: Cross-platform, aesthetic, distraction-free markdown editor
 dev-cpp/asio 9999: Asynchronous Network Library
 dev-cpp/kashmir 9999: Library is intended to provide functionality needed in many software projects, but not present in the C++ standard library.
 dev-libs/LND 9999: Linux file dialog implementations dedicated for Unreal Engine
