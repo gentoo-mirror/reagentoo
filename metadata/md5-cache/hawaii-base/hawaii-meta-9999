@@ -7,4 +7,4 @@ LICENSE=metapackage
 RDEPEND==hawaii-base/hawaii-shell-9999* =hawaii-base/hawaii-workspace-9999* eyesight? ( hawaii-base/eyesight ) icons? ( =hawaii-base/hawaii-icon-theme-9999* ) plymouth? ( hawaii-base/hawaii-plymouth-theme ) preferences? ( =hawaii-base/hawaii-system-preferences-9999* ) sddm? ( >=x11-misc/sddm-0.11.0 ) terminal? ( hawaii-base/hawaii-terminal ) wallpapers? ( =hawaii-base/hawaii-wallpapers-9999* )
 SLOT=0
 _eclass_exported_funcs=-
-_md5_=40466539ca8896bcaf49df85cf4c40d3
+_md5_=267e73940aec2eaf28b9bd213b7237a1

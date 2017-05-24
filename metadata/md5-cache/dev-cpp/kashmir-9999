@@ -7,4 +7,4 @@ LICENSE=Boost-1.0
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_install:-
 _eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390
-_md5_=5473153c03b69cdbf4347dc970c69ee4
+_md5_=2aefa64f87f84fc17edbf0257cbc1776
