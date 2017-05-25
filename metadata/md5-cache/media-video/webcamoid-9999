@@ -3,10 +3,10 @@ DEPEND=dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia
 DESCRIPTION=A full featured webcam capture application
 EAPI=6
 HOMEPAGE=https://webcamoid.github.io
-IUSE=doc headers jack pulseaudio linguas_ca linguas_de linguas_el linguas_es linguas_et linguas_fr linguas_gl linguas_it linguas_ja linguas_ko linguas_nl linguas_pt linguas_ru linguas_zh_CN linguas_zh_TW
+IUSE=doc headers jack pulseaudio linguas_ca linguas_de linguas_el linguas_es linguas_et linguas_fr linguas_gl linguas_it linguas_ja linguas_kab linguas_ko linguas_nl linguas_pt linguas_ru linguas_zh_CN linguas_zh_TW
 LICENSE=GPL-3
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 >=media-libs/gstreamer-1.6.0 >=media-video/ffmpeg-3.1.0:= media-libs/libv4l jack? ( virtual/jack ) pulseaudio? ( media-sound/pulseaudio )
 SLOT=0
 _eclass_exported_funcs=src_unpack:git-r3 src_prepare:- src_configure:- src_install:-
 _eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	git-r3	cbafa3261c37c7e3af44bb16a34ea390	l10n	8f52d9ce1814aca2ed1a46920084ea66	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	qmake-utils	ea78a9056543346cdc8cbbd07f16c6fb	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	versionator	c80ccf29e90adea7c5cae94b42eb76d0
-_md5_=aa228bb93583e31fb84b20bbdc6eb422
+_md5_=e6327740a80c34e8824a53335d472a7a

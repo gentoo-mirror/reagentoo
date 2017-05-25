@@ -26,13 +26,13 @@ media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware st
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-libs/libuvc 0.0.5 9999: A cross-platform library for USB video devices, built atop libusb
-media-video/qmplay2 17.04.02 9999: Qt-based video player, which can play all formats and stream
-media-video/shotcut 17.01 9999: A free, open source, cross-platform video editor
-media-video/webcamoid 9999: A full featured webcam capture application
+media-video/qmplay2 17.04.21 9999: Qt-based video player, which can play all formats and stream
+media-video/shotcut 17.05 9999: A free, open source, cross-platform video editor
+media-video/webcamoid 8.0.0 9999: A full featured webcam capture application
 net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
-net-libs/restbed 9999: Restbed is a comprehensive and consistent programming model for building applications that require seamless and secure communication over HTTP
+net-libs/restbed 4.5 9999: For applications that require seamless and secure communication over HTTP
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
