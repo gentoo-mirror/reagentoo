@@ -29,7 +29,7 @@ media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and com
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-libs/libuvc 0.0.5 9999: A cross-platform library for USB video devices, built atop libusb
 media-video/qmplay2 17.04.21 9999: Qt-based video player, which can play all formats and stream
-media-video/shotcut 17.05 9999: A free, open source, cross-platform video editor
+media-video/shotcut 17.06 9999: A free, open source, cross-platform video editor
 media-video/webcamoid 8.0.0 9999: A full featured webcam capture application
 net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/telegram-desktop 1.1.7 9999: Official desktop client for Telegram
