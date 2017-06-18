@@ -36,6 +36,7 @@ net-im/telegram-desktop 1.1.7 9999: Official desktop client for Telegram
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
 net-libs/restbed 4.5 9999: For applications that require seamless and secure communication over HTTP
+sci-electronics/eagle 8.2.2: Autodesk EAGLE schematic and printed circuit board (PCB) layout editor
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
