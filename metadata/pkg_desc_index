@@ -36,7 +36,7 @@ net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/telegram-desktop 1.1.9 9999: Official desktop client for Telegram
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
-net-libs/restbed 4.5 9999: For applications that require seamless and secure communication over HTTP
+net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-p2p/cpp-ethereum 9999: Ethereum and other technologies to provide a decentralised application framework
 net-p2p/etherwall 2.0.1 9999: A free software wallet/front-end for Ethereum
 net-p2p/ethminer 0.11.0 9999: Ethereum miner with CUDA and stratum support
