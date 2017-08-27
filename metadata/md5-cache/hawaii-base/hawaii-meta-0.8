@@ -1,0 +1,11 @@
+DEFINED_PHASES=-
+DESCRIPTION=Meta ebuild for Hawaii Desktop Environment
+EAPI=6
+HOMEPAGE=http://hawaiios.org/
+IUSE=+eyesight +icons plymouth +preferences sddm +terminal +wallpapers
+KEYWORDS=~amd64 ~x86
+LICENSE=metapackage
+RDEPEND==hawaii-base/hawaii-shell-0.8* =hawaii-base/hawaii-workspace-0.8* eyesight? ( hawaii-base/eyesight ) icons? ( =hawaii-base/hawaii-icon-theme-0.8* ) plymouth? ( hawaii-base/hawaii-plymouth-theme ) preferences? ( =hawaii-base/hawaii-system-preferences-0.8* ) sddm? ( >=x11-misc/sddm-0.11.0 ) terminal? ( hawaii-base/hawaii-terminal ) wallpapers? ( =hawaii-base/hawaii-wallpapers-0.8* )
+SLOT=0
+_eclass_exported_funcs=-
+_md5_=267e73940aec2eaf28b9bd213b7237a1
