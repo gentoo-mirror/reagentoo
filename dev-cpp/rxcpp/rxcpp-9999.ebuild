@@ -24,7 +24,7 @@ else
 	S=${WORKDIR}/${MY_P}
 fi
 
-LICENSE="Apache-2"
+LICENSE="Apache-2.0"
 SLOT="0"
 IUSE=""
 
