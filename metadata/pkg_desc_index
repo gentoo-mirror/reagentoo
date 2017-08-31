@@ -1,6 +1,7 @@
 app-editors/ghostwriter 1.5.0 9999: Cross-platform, aesthetic, distraction-free markdown editor
 dev-cpp/asio 9999: Asynchronous Network Library
 dev-cpp/kashmir 9999: Library is intended to provide functionality needed in many software projects, but not present in the C++ standard library.
+dev-cpp/rxcpp 4.0.0 9999: Library of algorithms for values-distributed-in-time
 dev-libs/LND 9999: Linux file dialog implementations dedicated for Unreal Engine
 dev-libs/blocks-runtime 0.4.1 9999: Blocks runtime for libdispatch-objc2
 dev-libs/crypto++ 0_p20170106 9999: C++ class library of cryptographic schemes
