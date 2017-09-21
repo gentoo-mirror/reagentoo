@@ -60,6 +60,7 @@ src_prepare() {
 		-e 's/include\(ExternalProject\)/include\(ExternalProjectNull\)/' \
 		-e '/include\(GNUInstallDirs\)/d' \
 		-e '/file\(MAKE_DIRECTORY.*\)/d' \
+		cmake/ProjectBoost.cmake \
 		cmake/ProjectCryptopp.cmake \
 		cmake/ProjectJsonCpp.cmake \
 		cmake/ProjectJsonRpcCpp.cmake \
@@ -69,12 +70,12 @@ src_prepare() {
 		unbundle_project_lib ${pkg}
 	done
 
-#	sed -r -i \
-#		-e '1s/^/find_package\(Boost REQUIRED\)\n\n/' \
-#		-e 's/(set\(BOOST_LIBRARY_SUFFIX) \.a\)/\1 \.so\)/' \
-#		-e 's/(set\(Boost_INCLUDE_DIR) .+\)/\1 \$\{Boost_INCLUDE_DIRS\}\)/' \
-#		-e 's/(set\(boost_library_dir) .+\)/\1 \$\{Boost_LIBRARY_DIRS\}\)/' \
-#		cmake/ProjectBoost.cmake || die
+	sed -r -i \
+		-e '1s/^/find_package\(Boost REQUIRED\)\n\n/' \
+		-e 's/(set\(BOOST_LIBRARY_SUFFIX) \.a\)/\1 \.so\)/' \
+		-e 's/(set\(Boost_INCLUDE_DIR) .+\)/\1 \$\{Boost_INCLUDE_DIRS\}\)/' \
+		-e 's/(set\(boost_library_dir) .+\)/\1 \$\{Boost_LIBRARY_DIRS\}\)/' \
+		cmake/ProjectBoost.cmake || die
 
 	sed -r -i \
 		-e '/add_dependencies\(jsonrpccpp jsoncpp\)/d' \
