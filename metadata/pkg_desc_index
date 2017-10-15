@@ -40,9 +40,9 @@ net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-p2p/cpp-ethereum 9999: Ethereum and other technologies to provide a decentralised application framework
-net-p2p/etherwall 2.0.1 9999: A free software wallet/front-end for Ethereum
+net-p2p/etherwall 2.0.8 9999: A free software wallet/front-end for Ethereum
 net-p2p/ethminer 0.12.0 9999: Ethereum miner with CUDA and stratum support
-net-p2p/go-ethereum 1.6.6 9999: Official golang implementation of the Ethereum protocol
+net-p2p/go-ethereum 1.7.2 9999: Official golang implementation of the Ethereum protocol
 sci-electronics/eagle 8.3.1: Autodesk EAGLE schematic and printed circuit board (PCB) layout editor
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
