@@ -21,12 +21,14 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 CMAKE_MIN_VERSION="3.4.0"
-LLVM_VER=3
+
+# TODO: uncomment for >=sys-devel/llvm-4.0.0
+#LLVM_SLOT=4
 
 src_prepare() {
-	sed -r -i \
-		-e 's/(find_package.+LLVM)(.+)/\1 '${LLVM_VER}'\2/' \
-		cmake/ProjectLLVM.cmake
+#	sed -r -i \
+#		-e 's/(find_package.+LLVM)(.+)/\1 '${LLVM_SLOT}'\2/' \
+#		cmake/ProjectLLVM.cmake
 
 	default
 }
@@ -36,8 +38,9 @@ src_configure() {
 		-DCMAKE_BUILD_TYPE="Release"
 		-DEVMJIT_EXAMPLES=$(usex examples)
 		-DEVMJIT_TESTS=$(usex tests)
-		-DLLVM_DIR="/usr/lib/llvm/${LLVM_VER}/${get_libdir}/cmake"
+		-DLLVM_DIR="/usr/${get_libdir}/cmake"
 	)
+#	-DLLVM_DIR="/usr/lib/llvm/${LLVM_SLOT}/${get_libdir}/cmake"
 
 	cmake-utils_src_configure
 }
