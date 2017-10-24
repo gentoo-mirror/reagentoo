@@ -30,7 +30,7 @@ kde-misc/krusader 9999-r1: An advanced twin-panel (commander-style) file-manager
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
-media-libs/libuvc 0.0.5 9999: A cross-platform library for USB video devices, built atop libusb
+media-libs/libuvc 9999: A cross-platform library for USB video devices, built atop libusb
 media-video/qmplay2 17.07.25 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 17.10 9999: A free, open source, cross-platform video editor
 media-video/webcamoid 8.1.0 9999: A full featured webcam capture application
