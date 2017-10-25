@@ -1,4 +1,4 @@
-app-editors/ghostwriter 1.5.0 9999: Cross-platform, aesthetic, distraction-free markdown editor
+app-editors/ghostwriter 9999: Cross-platform, aesthetic, distraction-free markdown editor
 dev-cpp/asio 9999: Asynchronous Network Library
 dev-cpp/kashmir 9999: Library is intended to provide functionality needed in many software projects, but not present in the C++ standard library.
 dev-cpp/libjson-rpc-cpp 1.0.0 9999: JSON-RPC (1.0 & 2.0) framework for C++
