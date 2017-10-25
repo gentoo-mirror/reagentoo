@@ -26,7 +26,6 @@ hawaii-base/hawaii-wallpapers 0.8.0 9999: Wallpapers for the Hawaii desktop envi
 hawaii-base/hawaii-widget-styles 0.8.0 9999: Styles for applications using QtQuick Controls
 hawaii-base/hawaii-workspace 0.8.1 9999: Base applications for the Hawaii desktop environment
 hawaii-base/libhawaii 0.8.0 9999: These are the libraries used by Hawaii Shell and other projects related to the Hawaii desktop environment
-kde-misc/krusader 9999-r1: An advanced twin-panel (commander-style) file-manager with many extras
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
