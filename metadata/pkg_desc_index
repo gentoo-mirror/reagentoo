@@ -34,7 +34,7 @@ media-video/qmplay2 17.07.25 9999: Qt-based video player, which can play all for
 media-video/shotcut 17.12 9999: A free, open source, cross-platform video editor
 media-video/webcamoid 8.1.0 9999: A full featured webcam capture application
 net-im/swift 4.0_beta2 9999: Your friendly chat client
-net-im/telegram-desktop 1.1.29 9999: Official desktop client for Telegram
+net-im/telegram-desktop 1.2.0 9999: Official desktop client for Telegram
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
 net-libs/haywire 9999: Asynchronous HTTP server framework written in C
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
