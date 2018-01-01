@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dbus? ( dev-qt/qtdbus:5 ) gme? ( media-libs/game-music-emu ) cdio? ( dev-libs/libcdio[cddb] ) jemalloc? ( dev-libs/jemalloc ) libass? ( media-libs/libass ) libav? ( media-video/libav:= ) !libav? ( media-video/ffmpeg:= ) mpris? ( dev-qt/qtdbus:5 ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) sid? ( media-libs/libsidplayfp ) taglib? ( media-libs/taglib ) vaapi? ( x11-libs/libva[opengl,X] ) vdpau? ( x11-libs/libvdpau ) xv? ( x11-libs/libXv ) dev-qt/linguist-tools:5 sys-devel/make >=dev-util/cmake-3.7.2 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Qt-based video player, which can play all formats and stream
+EAPI=6
+HOMEPAGE=https://github.com/zaps166/QMPlay2
+IUSE=gme sid avresample libass animeodcinki datmusic lastfm tekstowo wbijam avdevice vaapi vdpau jemalloc taglib alsa audiofilters cuvid extensions ffmpeg inputs modplug portaudio pulseaudio videofilters visualizations cdio dbus libav mpris notifications opengl xv linguas_de linguas_es linguas_fr linguas_pl linguas_ru linguas_uk linguas_zh
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dbus? ( dev-qt/qtdbus:5 ) gme? ( media-libs/game-music-emu ) cdio? ( dev-libs/libcdio[cddb] ) jemalloc? ( dev-libs/jemalloc ) libass? ( media-libs/libass ) libav? ( media-video/libav:= ) !libav? ( media-video/ffmpeg:= ) mpris? ( dev-qt/qtdbus:5 ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) sid? ( media-libs/libsidplayfp ) taglib? ( media-libs/taglib ) vaapi? ( x11-libs/libva[opengl,X] ) vdpau? ( x11-libs/libvdpau ) xv? ( x11-libs/libXv )
+REQUIRED_USE=animeodcinki? ( extensions ) avdevice? ( ffmpeg ) datmusic? ( extensions ) lastfm? ( extensions ) mpris? ( extensions ) tekstowo? ( extensions ) vaapi? ( ffmpeg ) vdpau? ( ffmpeg ) wbijam? ( extensions )
+SLOT=0
+SRC_URI=https://github.com/zaps166/QMPlay2/releases/download/17.12.31/QMPlay2-src-17.12.31.tar.xz
+_eclasses_=cmake-utils	77a5a8d3308359caadcdd91688f20093	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	97ce9decef1ff4b6c5be700283f67343	flag-o-matic	02908f00f002f0f07c5b74783d778325	l10n	2c2e15383ba891d642f51896a7f0ecfe	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	6f5991c7101863d0b29df63990ad852e	ninja-utils	ebb2eaddc6331c4fa000b8eb8f6fe074	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	c80ccf29e90adea7c5cae94b42eb76d0	xdg	6cd76cc914c1a759dee032778487b57f	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
+_md5_=b5c19b081d4e0515fd8d4eb34cac8ed9
