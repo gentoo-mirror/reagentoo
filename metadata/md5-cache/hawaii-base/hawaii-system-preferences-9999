@@ -3,9 +3,9 @@ DEPEND=dev-libs/greenisland >=dev-qt/linguist-tools-5.7.0:5 >=dev-qt/qtcore-5.7.
 DESCRIPTION=System preferences for the Hawaii desktop environment
 EAPI=6
 HOMEPAGE=https://github.com/hawaii-desktop/hawaii-system-preferences
-IUSE=debug linguas_ar linguas_ast linguas_bg linguas_cs_CZ linguas_de linguas_el linguas_es linguas_fa_IR linguas_fr linguas_hu linguas_id linguas_it linguas_ja_JP linguas_kk linguas_nl linguas_no linguas_pl linguas_pt linguas_pt linguas_pt_BR linguas_ru linguas_si_LK linguas_sk linguas_tr linguas_vi linguas_zh_CN
+IUSE=debug
 LICENSE=GPL-2.0
 RDEPEND=dev-libs/greenisland >=dev-qt/linguist-tools-5.7.0:5 >=dev-qt/qtcore-5.7.0:5 >=dev-qt/qtdeclarative-5.7.0:5 >=dev-qt/qtgui-5.7.0:5 >=dev-qt/qtwidgets-5.7.0:5 hawaii-base/libhawaii sys-auth/polkit-qt[qt5] x11-misc/xkeyboard-config
 SLOT=0
-_eclasses_=cmake-utils	202a2becc86cb78ba14baad148d06759	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	97ce9decef1ff4b6c5be700283f67343	flag-o-matic	02908f00f002f0f07c5b74783d778325	git-r3	fec09a83ae965b041b47f5ff7c8ba29a	l10n	2c2e15383ba891d642f51896a7f0ecfe	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	ebb2eaddc6331c4fa000b8eb8f6fe074	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	c80ccf29e90adea7c5cae94b42eb76d0	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
+_eclasses_=cmake-utils	202a2becc86cb78ba14baad148d06759	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	97ce9decef1ff4b6c5be700283f67343	flag-o-matic	02908f00f002f0f07c5b74783d778325	git-r3	fec09a83ae965b041b47f5ff7c8ba29a	l10n	07318ed5f26525a9d302ca87d20b2865	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	ebb2eaddc6331c4fa000b8eb8f6fe074	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	versionator	c80ccf29e90adea7c5cae94b42eb76d0	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
 _md5_=bab314c84607749746c1f95b45b7aab4
