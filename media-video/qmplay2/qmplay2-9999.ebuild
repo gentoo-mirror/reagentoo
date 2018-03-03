@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PLOCALES="de es fr pl ru uk zh"
+PLOCALES="de es fr hu pl ru uk zh"
 
 inherit cmake-utils l10n xdg
 
