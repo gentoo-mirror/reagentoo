@@ -4,6 +4,7 @@ DESCRIPTION=Ethereum miner with CUDA and stratum support
 EAPI=6
 HOMEPAGE=https://github.com/ethereum-mining/ethminer
 IUSE=apicore cuda dbus +opencl
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+ LGPL-3+
 RDEPEND=dev-cpp/libjson-rpc-cpp[http-client] dev-libs/boost dev-libs/jsoncpp apicore? ( dev-cpp/libjson-rpc-cpp[tcp-socket-server] ) cuda? ( dev-util/nvidia-cuda-toolkit ) dbus? ( sys-apps/dbus ) opencl? ( virtual/opencl )
 SLOT=0
