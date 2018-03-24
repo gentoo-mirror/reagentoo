@@ -4,6 +4,7 @@ DESCRIPTION=A library for just-in-time compilation of Ethereum EVM code
 EAPI=6
 HOMEPAGE=https://github.com/ethereum/evmjit
 IUSE=debug examples test
+KEYWORDS=~x86 ~amd64
 LICENSE=MIT
 RDEPEND=sys-devel/llvm:5
 SLOT=0
