@@ -4,6 +4,7 @@ DESCRIPTION=Ethereum and other technologies to provide a decentralised applicati
 EAPI=6
 HOMEPAGE=https://www.ethereum.org
 IUSE=ctest debug +fatdb hera evmjit +optimize test +tools upnp vmtrace
+KEYWORDS=~x86 ~amd64
 LICENSE=MIT ISC GPL-3+ LGPL-3+ BSD-2 public-domain
 RDEPEND=app-crypt/libscrypt <dev-cpp/libjson-rpc-cpp-1.0.0[http-client,http-server,stubgen] dev-libs/boost[context,threads] dev-libs/crypto++ >=dev-libs/gmp-6:= dev-libs/jsoncpp dev-libs/leveldb[snappy] dev-libs/libsecp256k1 dev-util/lcov dev-util/scons net-libs/libmicrohttpd net-misc/curl sys-libs/libcpuid sys-libs/ncurses:0[tinfo] sys-libs/readline:0 virtual/opencl evmjit? ( net-p2p/evmjit ) hera? ( net-p2p/hera ) upnp? ( net-libs/miniupnpc )
 SLOT=0
