@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install unpack
-DEPEND=dev-lang/go:= opencl? ( virtual/opencl ) >=dev-vcs/git-1.8.2.1
+DEPEND=dev-lang/go:= opencl? ( virtual/opencl ) >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Official golang implementation of the Ethereum protocol
 EAPI=6
 HOMEPAGE=https://github.com/ethereum/go-ethereum
@@ -7,5 +7,5 @@ IUSE=evm opencl
 LICENSE=GPL-3+ LGPL-3+
 RDEPEND=dev-lang/go:= opencl? ( virtual/opencl )
 SLOT=0
-_eclasses_=git-r3	af51ccfceeb403ab80f1bf9209d372c8
-_md5_=cf1352ec4c638e2910e95ae1871f8931
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=a461dc04baf3459745eb28f75502915b
