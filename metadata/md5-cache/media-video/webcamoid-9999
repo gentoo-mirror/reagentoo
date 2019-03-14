@@ -8,5 +8,5 @@ LICENSE=GPL-3
 RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtquickcontrols:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ffmpeg? ( libav? ( media-video/libav:= ) !libav? ( media-video/ffmpeg:= ) ) gstreamer? ( >=media-libs/gstreamer-1.6.0 ) jack? ( virtual/jack ) libuvc? ( media-libs/libuvc ) pulseaudio? ( media-sound/pulseaudio ) qtaudio? ( dev-qt/qtmultimedia:5 ) v4l? ( media-libs/libv4l )
 REQUIRED_USE=libav? ( ffmpeg ) v4lutils? ( v4l )
 SLOT=0
-_eclasses_=estack	43ddf5aaffa7a8d0482df54d25a66a1f	git-r3	0d4635eeb5a96cd5315597a47eba25c9	l10n	97f2753e3f1f3753d53d856c7c0bbb0b	multilib	b2f01ad412baf81650c23fcf0975fa33	qmake-utils	bdf97e69a34b864d6d545f4ec3143ff7	toolchain-funcs	f164325a2cdb5b3ea39311d483988861
+_eclasses_=estack	43ddf5aaffa7a8d0482df54d25a66a1f	git-r3	0d4635eeb5a96cd5315597a47eba25c9	l10n	97f2753e3f1f3753d53d856c7c0bbb0b	multilib	b2f01ad412baf81650c23fcf0975fa33	qmake-utils	bdf97e69a34b864d6d545f4ec3143ff7	toolchain-funcs	b45201c4e6c096b98e250336954e64b9
 _md5_=4dd69953eb1b9f8772038f535cae4f90
