@@ -1,0 +1,11 @@
+BDEPEND=virtual/cargo >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=A modern editor with a backend written in Rust
+EAPI=7
+HOMEPAGE=https://xi-editor.io/xi-editor/
+IUSE=+syntect debug
+LICENSE=Apache-2.0
+RESTRICT=network-sandbox
+SLOT=0
+_eclasses_=cargo	009acb9fc0d496be29570ae200345360	git-r3	0d4635eeb5a96cd5315597a47eba25c9	multiprocessing	cac3169468f893670dac3e7cb940e045
+_md5_=93005f3d902b174b0f8136c30ced34e9

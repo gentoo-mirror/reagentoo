@@ -1,0 +1,12 @@
+BDEPEND=>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=|| ( dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) >=x11-libs/gtk+-3.20.0 dev-libs/json-glib
+DESCRIPTION=A GTK+ front-end for the Xi editor
+EAPI=7
+HOMEPAGE=https://github.com/eyelash/xi-gtk
+LICENSE=Apache-2.0
+RDEPEND=|| ( dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) >=x11-libs/gtk+-3.20.0 dev-libs/json-glib app-editors/xi-core
+RESTRICT=network-sandbox
+SLOT=0
+_eclasses_=eutils	6e6c2737b59a4b982de6fb3ecefd87f8	git-r3	0d4635eeb5a96cd5315597a47eba25c9	meson	e53acc5913e5581a8a71be22731d8f36	multilib	b2f01ad412baf81650c23fcf0975fa33	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	08e17157a6807add7db1f8d01e7e391f	toolchain-funcs	b45201c4e6c096b98e250336954e64b9	vala	cfb1d97eac9fead928d3240c8636b9ae
+_md5_=70b6d987244d73ae98c12d742ec5f5a2
