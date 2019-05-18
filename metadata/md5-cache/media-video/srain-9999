@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure postinst postrm unpack
+DEPEND=dev-libs/libconfig net-libs/libsoup
+DESCRIPTION=Modern, beautiful IRC client written in GTK+ 3
+EAPI=7
+HOMEPAGE=https://github.com/SrainApp/srain
+IUSE=debug
+LICENSE=GPL-3
+RDEPEND=dev-libs/libconfig net-libs/libsoup >=x11-libs/gtk+-3.16.7 x11-libs/libnotify
+SLOT=0
+_eclasses_=eutils	6e6c2737b59a4b982de6fb3ecefd87f8	git-r3	0d4635eeb5a96cd5315597a47eba25c9	xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=10d051b4a95e09f45a28a64e49726752
