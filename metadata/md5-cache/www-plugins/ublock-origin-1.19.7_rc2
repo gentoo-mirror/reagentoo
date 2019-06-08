@@ -4,6 +4,7 @@ DESCRIPTION=The Fastest, Most-Powerful Ad Blocker
 EAPI=7
 HOMEPAGE=https://www.ublock.org/
 IUSE=chromium firefox opera thunderbird
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 REQUIRED_USE=|| ( chromium firefox opera thunderbird )
 SLOT=0
