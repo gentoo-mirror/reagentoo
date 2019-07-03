@@ -32,8 +32,12 @@ _echo() {
 }
 
 _exit() {
-	_echo $1
+	_echo "$@"
 	exit 1
+}
+
+_kill() {
+	kill "$@" >/dev/null 2>&1
 }
 
 _curl() {
@@ -152,12 +156,12 @@ loop() {
 		wait -n \
 			|| _exit "MTProxy return bad status: $?. Exiting."
 
-		kill ${sleep_pid} \
+		_kill ${sleep_pid} \
 			&& _echo "Warning: MTProxy was terminated before timer is out"
 
 		curl_all && continue
 
-		kill ${mtpxy_pid} \
+		_kill ${mtpxy_pid} \
 			|| _echo "Warning: MTProxy was already stopped after curl_all"
 
 		wait \
@@ -169,17 +173,21 @@ loop() {
 	done
 }
 
-trap_exit() {
-	kill ${mtpxy_pid} ${sleep_pid}
-	wait
-	_echo "Exiting MTProxy with status: $?"
+cleanup() {
+	_kill ${mtpxy_pid} ${sleep_pid}
+
+	if (( $1 == 0 ))
+	then
+		wait
+		_echo "MTProxy status: $?. Exiting."
+	fi
 }
 
 mtpxy_pid=$$
 sleep_pid=$$
 
-trap "exit" INT TERM
-trap "trap_exit" EXIT
+trap "exit 0" INT TERM
+trap "cleanup \$?" EXIT
 
 case $1 in
 curl)

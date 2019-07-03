@@ -18,10 +18,11 @@ command="${MTPD_RUN}"
 command_args="loop"
 command_background="yes"
 command_user="${MTPD_USER}:${MTPD_GROUP}"
-directory="${MTPD_DIR}"
 
+directory="${MTPD_DIR}"
 output_log="${MTPD_LOG}"
 pidfile="${MTPD_PIDFILE}"
+
 start_stop_daemon_args="--env CONFIG=${MTPD_CONFIG} ${MTPD_SSD_ARGS}"
 
 start_pre() {
