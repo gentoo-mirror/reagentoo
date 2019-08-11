@@ -2,3 +2,29 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-editors/xi-core:syntect - Enable syntax highlighting plugin
+gnome-extra/budgie-desktop:pm-utils - Adds support for suspend/resume using sys-power/upower-pm-utils instead of sys-power/upower
+media-video/qmplay2:animeodcinki - Build with AnimeOdcinki support
+media-video/qmplay2:audiofilters - Build with AudioFilters module
+media-video/qmplay2:avdevice - Build FFmpeg module with libavdevice suport
+media-video/qmplay2:avresample - Use libavresample instead of libswresample
+media-video/qmplay2:cdio - Build with AudioCD module
+media-video/qmplay2:cuvid - Build with CUVID module
+media-video/qmplay2:extensions - Build with Extensions module
+media-video/qmplay2:gme - Build Chiptune with GME support
+media-video/qmplay2:inputs - Build with Inputs module
+media-video/qmplay2:jemalloc - Use dev-libs/jemalloc for allocations
+media-video/qmplay2:lastfm - Build with LastFM support
+media-video/qmplay2:mpris - Build Extensions with MPRIS2 support
+media-video/qmplay2:myfreemp3 - Build with MyFreeMp3 support
+media-video/qmplay2:notifications - 
+media-video/qmplay2:sid - Build Chiptune with SIDPLAY support
+media-video/qmplay2:tekstowo - Build with Tekstowo lyrics support
+media-video/qmplay2:videofilters - Build with VideoFilters module
+media-video/qmplay2:visualizations - Build with Visualizations module
+media-video/qmplay2:wbijam - Build with Wbijam (anime) support
+media-video/webcamoid:headers - Install development headers
+media-video/webcamoid:libuvc - Build with libuvc support
+media-video/webcamoid:qtaudio - Enable audio capture/play via dev-qt/qtmultimedia
+media-video/webcamoid:v4lutils - Build with V4L-utils support
+media-video/webcamoid:videoeffects - Build video effects
