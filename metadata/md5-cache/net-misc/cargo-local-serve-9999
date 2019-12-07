@@ -8,5 +8,5 @@ LICENSE=MIT/Apache-2.0
 PROPERTIES=live
 RESTRICT=network-sandbox
 SLOT=0
-_eclasses_=cargo	72d5e7b3dd6b7132f6efc1973fabe4a3	git-r3	562b380fc59ae6a8622171d0acb777d1	multiprocessing	cac3169468f893670dac3e7cb940e045
+_eclasses_=cargo	72d5e7b3dd6b7132f6efc1973fabe4a3	git-r3	6d22636df236df4cc8475f7b7668bdcd	multiprocessing	cac3169468f893670dac3e7cb940e045
 _md5_=67f70aa87c2da203e440eacf572837fe
