@@ -52,4 +52,5 @@ sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
 sys-libs/libcpuid 0.4.0 9999: Small C library for x86 CPU detection and feature extraction
 www-plugins/ublock-origin 1.21.6 9999: The Fastest, Most-Powerful Ad Blocker
+x11-misc/sunflower 9999: Small and highly customizable twin-panel file manager with plugin-support
 x11-terms/galacritty 9999: GTK 3 terminal emulator based on the GPU-accelerated Alacritty core
