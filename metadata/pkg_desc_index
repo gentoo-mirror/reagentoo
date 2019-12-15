@@ -31,7 +31,7 @@ media-video/glide 0.5.6 9999: Cross-platform media player based on GStreamer and
 media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 9999: A free, open source, cross-platform video editor
 media-video/webcamoid 9999: A full featured webcam capture application
-net-im/srain 1.0.0_rc4 9999: Modern, beautiful IRC client written in GTK+ 3
+net-im/srain 1.0.0_rc9999 9999: Modern, beautiful IRC client written in GTK+ 3
 net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/telegram-desktop 1.7.10 9999: Official desktop client for Telegram
 net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
