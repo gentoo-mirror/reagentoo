@@ -80,7 +80,7 @@ pkg_pretend() {
 			einfo "API_HASH=${TDESKTOP_API_HASH//[!\*]/*}"
 		) || (
 			eerror "It seems you did not set one or both of"
-			eerror "API_ID and API_HASH variables,"
+			eerror "TDESKTOP_API_ID and TDESKTOP_API_HASH variables,"
 			eerror "which are required for custom-api-id USE-flag."
 			eerror "You can set them either in your env or bashrc."
 			die
