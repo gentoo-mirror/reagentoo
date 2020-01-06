@@ -178,7 +178,7 @@ src_prepare() {
 		-e 's/\(pkg_check_modules.*gtk+\)-2/\1-3/' \
 		-e 's/\(pkg_check_modules.*APPIND[^[:space:]]\+\)/\1 REQUIRED/' \
 		-e 's/if.*NOT[[:space:]]*build_macstore.*/if(False)/' \
-		-e 's:${output_folder}:${CMAKE_BINARY_DIR}/bin:' \
+		-e 's:\${output_folder}:${CMAKE_BINARY_DIR}/bin:' \
 		Telegram/CMakeLists.txt || die
 
 	local qt_plugins=/usr/$(get_libdir)/qt5/plugins
@@ -209,7 +209,7 @@ src_prepare() {
 		sed -i -e 's/if.*TDESKTOP_API_[A-Z]*.*/if(False)/' \
 			Telegram/cmake/telegram_options.cmake || die
 
-		sed -i -e 's/\(TDESKTOP_API_[A-Z]*=$\)\({[_A-Z]*}\)/\1ENV\2/' \
+		sed -i -e 's/\(TDESKTOP_API_[A-Z]*=\$\)\({[_A-Z]*}\)/\1ENV\2/' \
 			Telegram/CMakeLists.txt || die
 	fi
 
