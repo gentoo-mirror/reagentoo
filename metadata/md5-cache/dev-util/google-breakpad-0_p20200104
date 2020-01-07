@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=An open-source multi-platform crash reporting system
 EAPI=7
 HOMEPAGE=http://code.google.com/p/google-breakpad/
+KEYWORDS=~x86 ~amd64
 LICENSE=BSD
 PROPERTIES=live
 SLOT=0
