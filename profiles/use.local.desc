@@ -31,6 +31,7 @@ media-video/webcamoid:videoeffects - Build video effects
 net-im/telegram-desktop:alsa - Adds support for ALSA audio input/output
 net-im/telegram-desktop:crashreporter - Enable crash reporter for bugs
 net-im/telegram-desktop:custom-api-id - Use custom API ID and API HASH
+net-im/telegram-desktop:dbus - Enable D-Bus notifiications and system tray support
 net-im/telegram-desktop:effects - Enable OpenAL effects
 net-im/telegram-desktop:gtk3 - Enable support for GTK+3
 net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
