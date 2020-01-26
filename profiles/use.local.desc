@@ -4,6 +4,7 @@
 
 app-editors/xi-core:syntect - Enable syntax highlighting plugin
 gnome-extra/budgie-desktop:pm-utils - Adds support for suspend/resume using sys-power/upower-pm-utils instead of sys-power/upower
+media-libs/webvfx:doc - Install doxygen developer documentation
 media-video/qmplay2:animeodcinki - Build with AnimeOdcinki support
 media-video/qmplay2:audiofilters - Build with AudioFilters module
 media-video/qmplay2:avdevice - Build FFmpeg module with libavdevice suport
