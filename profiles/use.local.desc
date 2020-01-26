@@ -37,3 +37,5 @@ net-im/telegram-desktop:gtk3 - Enable support for GTK+3
 net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
 net-im/telegram-desktop:spell - Add supports Enchant spelling library
 net-im/telegram-desktop:test - Build and run the test-suite
+net-libs/tdlib:doc - Install doxygen developer documentation
+net-libs/tdlib:java - Add Java-bindings
