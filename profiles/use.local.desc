@@ -34,9 +34,10 @@ net-im/telegram-desktop:crashreporter - Enable crash reporter for bugs
 net-im/telegram-desktop:custom-api-id - Use custom API ID and API HASH
 net-im/telegram-desktop:dbus - Enable D-Bus notifiications and system tray support
 net-im/telegram-desktop:effects - Enable OpenAL effects
+net-im/telegram-desktop:enchant - Enable spellchecking using app-text/enchant
 net-im/telegram-desktop:gtk3 - Enable support for GTK+3
+net-im/telegram-desktop:hunspell - Enable spellchecking using app-text/hunspell
 net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
-net-im/telegram-desktop:spell - Add supports Enchant spelling library
 net-im/telegram-desktop:test - Build and run the test-suite
 net-libs/tdlib:doc - Install doxygen developer documentation
 net-libs/tdlib:java - Add Java-bindings
