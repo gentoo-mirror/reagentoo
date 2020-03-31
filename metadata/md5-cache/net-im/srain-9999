@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/SrainApp/srain
 IUSE=debug
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=dev-libs/libconfig net-libs/libsoup >=x11-libs/gtk+-3.16.7 x11-libs/libnotify
+RDEPEND=dev-libs/libconfig net-libs/libsoup >=x11-libs/gtk+-3.22.0 x11-libs/libnotify
 SLOT=0
 _eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=10d051b4a95e09f45a28a64e49726752
+_md5_=b0451218c7d3cd4a29efc1c3bc8b0fd2
