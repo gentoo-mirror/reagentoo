@@ -27,7 +27,7 @@ media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and com
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-libs/libuvc 9999: A cross-platform library for USB video devices, built atop libusb
 media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
-media-video/celluloid 0.18 9999: A simple GTK+ frontend for mpv
+media-video/celluloid 0.19 9999: A simple GTK+ frontend for mpv
 media-video/glide 0.5.6 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
