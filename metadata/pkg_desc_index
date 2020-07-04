@@ -3,7 +3,7 @@ app-editors/gxi 0.6.2 9999: GTK frontend, written in Rust, for the xi editor
 app-editors/xi-core 9999: A modern editor with a backend written in Rust
 app-editors/xi-gtk 9999: A GTK+ front-end for the Xi editor
 dev-cpp/asio 1.12.0 9999: Asynchronous Network Library
-dev-cpp/ethash 0_p20180504 9999: C/C++ implementation of Ethash – the Ethereum Proof of Work algorithm
+dev-cpp/ethash 0.4.4 9999: C/C++ implementation of Ethash – the Ethereum Proof of Work algorithm
 dev-cpp/kashmir 9999: Dependency needed for net-libs/restbed
 dev-cpp/libff 0_p20180227 9999: C++ library for Finite Fields and Elliptic Curves
 dev-cpp/libjson-rpc-cpp 0.7.0: JSON-RPC (1.0 & 2.0) framework for C++
