@@ -9,5 +9,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=dev-libs/libconfig net-libs/libsoup >=x11-libs/gtk+-3.22.0 x11-libs/libnotify
 SLOT=0
-_eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	git-r3	8ec5b53812bce105ae7943930e4660f8	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=b0451218c7d3cd4a29efc1c3bc8b0fd2
