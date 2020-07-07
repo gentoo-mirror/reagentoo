@@ -42,7 +42,7 @@ net-libs/tdlib 9999: Cross-platform library for building Telegram clients
 net-misc/cargo-local-serve 9999: Serve a local, offline, clone of crates.io
 net-p2p/cpp-ethereum 0_p20180427 9999: Ethereum and other technologies to provide a decentralised application framework
 net-p2p/etherwall 2.2.1 9999: A free software wallet/front-end for Ethereum
-net-p2p/ethminer 0.15.0_pre8 9999: Ethereum miner with CUDA and stratum support
+net-p2p/ethminer 0.18.0 9999: Ethereum miner with CUDA and stratum support
 net-p2p/evmjit 0_p20180411 9999: A library for just-in-time compilation of Ethereum EVM code
 net-p2p/go-ethereum 1.8.2 9999: Official golang implementation of the Ethereum protocol
 net-p2p/hera 0_p20180425 9999: eWASM virtual machine implemented in C++ conforming to the Ethereum VM API

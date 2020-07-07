@@ -42,3 +42,10 @@ net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/out
 net-im/telegram-desktop:test - Build and run the test-suite
 net-libs/tdlib:doc - Install doxygen developer documentation
 net-libs/tdlib:java - Add Java-bindings
+net-p2p/ethminer:apicore - Build with API Server support
+net-p2p/ethminer:binkern - Install AMD binary kernels
+net-p2p/ethminer:cpu - Build with CPU mining (only for development)
+net-p2p/ethminer:cuda - Build with CUDA mining
+net-p2p/ethminer:dbus - Build with D-Bus support
+net-p2p/ethminer:opencl - Build with OpenCL mining
+net-p2p/ethminer:verbose-debug - Log developer metrics
