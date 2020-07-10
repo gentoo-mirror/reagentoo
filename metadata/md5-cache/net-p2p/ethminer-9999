@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=dev-cpp/ethash >=dev-cpp/libjson-rpc-cpp-1.0.0[http-client] dev-cpp/uri dev-libs/boost dev-libs/jsoncpp dev-libs/openssl cuda? ( dev-util/nvidia-cuda-toolkit ) dbus? ( sys-apps/dbus ) opencl? ( virtual/opencl )
 SLOT=0
 _eclasses_=cmake	19b0421555865baefd505831dd4303e3	eutils	fcb2aa98e1948b835b5ae66ca52868c5	flag-o-matic	f1194291b9a1baca337c1c89b5f7f365	git-r3	8ec5b53812bce105ae7943930e4660f8	multilib	2477ebe553d3e4d2c606191fe6c33602	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=830ce68c28593dd13a3da8f68b94f906
+_md5_=9a8c9368ba7c8916994efa9fe8d3ef3d
