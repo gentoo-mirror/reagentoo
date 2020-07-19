@@ -321,7 +321,7 @@ HOMEPAGE="https://github.com/mimblewimble/grin"
 if [[ ${PV} == 9999 ]]
 then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/mimblewimble/${MY_PN}.git"
+	EGIT_REPO_URI="https://github.com/mimblewimble/${PN}.git"
 	RESTRICT="network-sandbox"
 	KEYWORDS=""
 else
