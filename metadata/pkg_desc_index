@@ -45,6 +45,9 @@ net-p2p/etherwall 2.2.1 9999: A free software wallet/front-end for Ethereum
 net-p2p/ethminer 0.18.0 9999: Ethereum miner with CUDA and stratum support
 net-p2p/evmjit 0_p20180411 9999: A library for just-in-time compilation of Ethereum EVM code
 net-p2p/go-ethereum 1.8.2 9999: Official golang implementation of the Ethereum protocol
+net-p2p/grin 4.0.1 9999: Cryptocurrency implementation based on the Mimblewimble chain format.
+net-p2p/grin-miner 4.0.0 9999: Mining software for Grin, supports CPU and CUDA GPUs.
+net-p2p/grin-wallet 4.0.0 9999: Wallet for Grin cryptocurrency
 net-p2p/hera 0_p20180425 9999: eWASM virtual machine implemented in C++ conforming to the Ethereum VM API
 net-proxy/mtproxy 9999: Simple MT-Proto proxy
 net-proxy/mtproxy-rs 9999: MTProto Proxy Server
