@@ -1,4 +1,4 @@
-# /etc/conf.d/grin-miner: config file for /etc/init.d/grin-miner
+# /etc/conf.d/ethminer: config file for /etc/init.d/ethminer
 
 # Default: ethminer
 #ETHMINER_USER=""
