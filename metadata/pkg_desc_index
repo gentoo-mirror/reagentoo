@@ -1,4 +1,3 @@
-app-editors/ghostwriter 9999: Cross-platform, aesthetic, distraction-free markdown editor
 app-editors/gxi 0.6.2 9999: GTK frontend, written in Rust, for the xi editor
 app-editors/xi-core 9999: A modern editor with a backend written in Rust
 app-editors/xi-gtk 9999: A GTK+ front-end for the Xi editor
@@ -7,36 +6,22 @@ dev-cpp/ethash 0.4.4 9999: C/C++ implementation of Ethash – the Ethereum Proof
 dev-cpp/kashmir 9999: Dependency needed for net-libs/restbed
 dev-cpp/libff 0_p20180227 9999: C++ library for Finite Fields and Elliptic Curves
 dev-cpp/libjson-rpc-cpp 0.7.0: JSON-RPC (1.0 & 2.0) framework for C++
-dev-cpp/rxcpp 4.0.0 9999: Library of algorithms for values-distributed-in-time
 dev-cpp/uri 0_p20180219 9999: Implements a generic URI parser, compatible with RFC 3986 and RFC 3987
-dev-libs/LND 9999: Linux file dialog implementations dedicated for Unreal Engine
-dev-libs/blocks-runtime 0.4.1 9999: Blocks runtime for libdispatch-objc2
-dev-libs/crypto++ 0_p20170106 9999: C++ class library of cryptographic schemes
-dev-libs/fluid 0.8.0 9999: Modules for fluid and dynamic applications development with QtQuick
-dev-libs/libdispatch 0.1.3.1 9999: Linux port of Apple's open-source concurrency library
-dev-libs/libkqueue 2.1.0 9999: Portable implementation of the kqueue() and kevent() system calls
-dev-libs/libpwq 0.9.2 9999: libpwq is a portable implementation of the pthread_workqueue API first introduced in Mac OS X.
 dev-util/binaryen 1.37.36 9999: Сompiler and toolchain infrastructure library for WebAssembly, written in C++
 dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash reporting system
 dev-util/gyp 0_p20170427 9999: A build system that generates other build systems
-games-emulation/yabause 0.9.15 9999: A Sega Saturn emulator
 games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
 gnome-extra/budgie-desktop 10.5 9999: Desktop Environment based on GNOME 3
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
-media-libs/libuvc 9999: A cross-platform library for USB video devices, built atop libusb
 media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
 media-video/celluloid 0.19 9999: A simple GTK+ frontend for mpv
 media-video/glide 0.5.6 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
-media-video/webcamoid 9999: A full featured webcam capture application
 net-im/srain 1.0.1 9999: Modern, beautiful IRC client written in GTK+ 3
-net-im/swift 4.0_beta2 9999: Your friendly chat client
 net-im/telegram-desktop 2.1.18 9999: Official desktop client for Telegram
-net-im/vacuum 9999-r1: Qt4 Crossplatform Jabber client
-net-libs/haywire 9999: Asynchronous HTTP server framework written in C
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-libs/tdlib 9999: Cross-platform library for building Telegram clients
 net-misc/cargo-local-serve 9999: Serve a local, offline, clone of crates.io
