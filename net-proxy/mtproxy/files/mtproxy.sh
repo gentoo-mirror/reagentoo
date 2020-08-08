@@ -24,6 +24,8 @@ source ${CONFIG}
 : ${PROXY_CONFIG="proxy-multi.conf"}
 : ${PROXY_SECRET="proxy-secret"}
 
+: ${VERBOSE="0"}
+
 _date() {
 	date +'%F %T' "$@"
 }
@@ -55,6 +57,18 @@ check_secret() {
 	fi
 }
 
+print_elapsed() {
+	local diff=$(( $2 - $1 ))
+	local d h m s
+
+	(( d = diff / (3600 * 24) ))
+	(( h = diff % (3600 * 24) / 3600 ))
+	(( m = diff % 3600 / 60 ))
+	(( s = diff % 60 ))
+
+	echo "${d} days, ${h} hours, ${m} minutes, ${s} seconds"
+}
+
 curl_bg() {
 	local url=$1
 	local out=$2
@@ -74,13 +88,12 @@ mtpxy_bg() {
 }
 
 sleep_bg() {
-	local s1 s2 ts
+	local s1 s2
 
 	(( s1 = $(date +%s) ))
 	(( s2 = $(date +%s -d "${DATESTR}") ))
-	(( ts = ${s2} - ${s1} ))
 
-	sleep ${ts} &
+	sleep $(( s2 - s1 )) &
 }
 
 curl_proxy() {
@@ -88,7 +101,7 @@ curl_proxy() {
 	local out=$2
 	local status
 
-	_echo "Download ${out}"
+	(( VERBOSE > 0 )) && _echo "Download ${out}"
 
 	while true
 	do
@@ -109,10 +122,10 @@ curl_proxy() {
 	if (( status > 0 ))
 	then
 		mv ${out}_ ${out}
-		_echo "${out} updated"
+		(( VERBOSE > 0 )) && _echo "${out} updated"
 	else
 		rm ${out}_
-		_echo "${out} has not changed"
+		(( VERBOSE > 0 )) && _echo "${out} has not changed"
 	fi
 
 	return ${status}
@@ -186,6 +199,8 @@ run() {
 	trap "cleanup" INT TERM
 
 	local -i rtime=0
+	local -i date1=$(date +%s)
+	local -i date2
 
 	curl_all
 
@@ -199,7 +214,11 @@ run() {
 		sleep_bg
 		child_pid=$!
 
-		_echo "Sleep until "$(_date -d "${DATESTR}")
+		date2=$(date +%s)
+
+		_echo "[${rtime}]" \
+			"Sleep until "$(_date -d "${DATESTR}")"." \
+			"Uptime: "$(print_elapsed ${date1} ${date2})"."
 
 		wait ${child_pid}
 
@@ -213,7 +232,7 @@ run() {
 		watch &
 		watch_pid=$!
 
-		_echo "MTProxy restarted "$(( rtime += 1 ))" times"
+		(( rtime += 1 ))
 	done
 }
 
