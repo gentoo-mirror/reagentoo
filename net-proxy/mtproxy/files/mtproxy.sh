@@ -24,7 +24,7 @@ source ${CONFIG}
 : ${PROXY_CONFIG="proxy-multi.conf"}
 : ${PROXY_SECRET="proxy-secret"}
 
-: ${VERBOSE="0"}
+: ${VERBOSE="1"}
 
 _date() {
 	date +'%F %T' "$@"
@@ -66,7 +66,8 @@ print_elapsed() {
 	(( m = diff % 3600 / 60 ))
 	(( s = diff % 60 ))
 
-	echo "${d} days, ${h} hours, ${m} minutes, ${s} seconds"
+	printf "%d days, %d hours, %d minutes, %d seconds" \
+		${d} ${h} ${m} ${s}
 }
 
 curl_bg() {
@@ -101,7 +102,7 @@ curl_proxy() {
 	local out=$2
 	local status
 
-	(( VERBOSE > 0 )) && _echo "Download ${out}"
+	(( VERBOSE > 1 )) && _echo "Download ${out}"
 
 	while true
 	do
@@ -122,10 +123,10 @@ curl_proxy() {
 	if (( status > 0 ))
 	then
 		mv ${out}_ ${out}
-		(( VERBOSE > 0 )) && _echo "${out} updated"
+		(( VERBOSE > 1 )) && _echo "${out} updated"
 	else
 		rm ${out}_
-		(( VERBOSE > 0 )) && _echo "${out} has not changed"
+		(( VERBOSE > 1 )) && _echo "${out} has not changed"
 	fi
 
 	return ${status}
@@ -216,7 +217,7 @@ run() {
 
 		date2=$(date +%s)
 
-		_echo "[${rtime}]" \
+		(( VERBOSE > 0 )) && _echo "[${rtime}]" \
 			"Sleep until "$(_date -d "${DATESTR}")"." \
 			"Uptime: "$(print_elapsed ${date1} ${date2})"."
 
