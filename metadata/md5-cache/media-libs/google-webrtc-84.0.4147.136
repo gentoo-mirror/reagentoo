@@ -1,15 +1,15 @@
 BDEPEND=|| ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-util/gn-0.1807 >=dev-util/ninja-1.7.2 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare pretend setup unpack
-DEPEND=dev-libs/openssl:0= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.8.2:= >=media-libs/openh264-1.6.0:= >=media-libs/opus-1.3.1:= >=media-video/ffmpeg-4:= sys-libs/zlib:=[minizip] libevent? ( dev-libs/libevent:= ) x265? ( media-libs/x265 )
+DEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.8.2:= >=media-libs/openh264-1.6.0:= >=media-libs/opus-1.3.1:= >=media-video/ffmpeg-4:= sys-libs/zlib:=[minizip] libevent? ( dev-libs/libevent:= ) pipewire? ( dev-libs/glib:= media-video/pipewire:0/0.2 ) pulseaudio? ( media-sound/pulseaudio:= ) x265? ( media-libs/x265:= ) X? ( x11-libs/libX11:= x11-libs/libXcomposite:= x11-libs/libXdamage:= x11-libs/libXext:= x11-libs/libXfixes:= x11-libs/libXrender:= x11-libs/libXrandr:= )
 DESCRIPTION=Library that provides browsers and mobile applications with Real-Time Communications
 EAPI=7
 HOMEPAGE=https://webrtc.org/
-IUSE=absl c++17 +libevent owt +proprietary-codecs protobuf x265
+IUSE=absl c++17 +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=BSD
-RDEPEND=dev-libs/openssl:0= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.8.2:= >=media-libs/openh264-1.6.0:= >=media-libs/opus-1.3.1:= >=media-video/ffmpeg-4:= sys-libs/zlib:=[minizip] libevent? ( dev-libs/libevent:= ) x265? ( media-libs/x265 )
+RDEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.8.2:= >=media-libs/openh264-1.6.0:= >=media-libs/opus-1.3.1:= >=media-video/ffmpeg-4:= sys-libs/zlib:=[minizip] libevent? ( dev-libs/libevent:= ) pipewire? ( dev-libs/glib:= media-video/pipewire:0/0.2 ) pulseaudio? ( media-sound/pulseaudio:= ) x265? ( media-libs/x265:= ) X? ( x11-libs/libX11:= x11-libs/libXcomposite:= x11-libs/libXdamage:= x11-libs/libXext:= x11-libs/libXfixes:= x11-libs/libXrender:= x11-libs/libXrandr:= )
 REQUIRED_USE=!owt? ( !x265 )
 SLOT=0
 SRC_URI=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-84.0.4147.136.tar.xz https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/18721dffbee8b3d946ddbccabb8d636de7e8f197.tar.gz -> owt-deps-webrtc-18721df.tar.gz
 _eclasses_=check-reqs	7e3fd1855a5e1b50bb9e80827b3f672d	multilib	2477ebe553d3e4d2c606191fe6c33602	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	bae936266b68e0c374a74f2b0d0aaa44	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
-_md5_=053427909786d5146226f9c6824d3d18
+_md5_=0c37fc74fe13f222e8051ff88f09b948

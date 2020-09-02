@@ -4,12 +4,16 @@
 
 app-editors/xi-core:syntect - Enable syntax highlighting plugin
 gnome-extra/budgie-desktop:pm-utils - Adds support for suspend/resume using sys-power/upower-pm-utils instead of sys-power/upower
+media-libs/google-webrtc:X - Enable X11 desktop capture
 media-libs/google-webrtc:absl - Install abseil-cpp headers
 media-libs/google-webrtc:c++17 - Build using the C++17 standard
 media-libs/google-webrtc:libevent - Use the libevent event loop interface
 media-libs/google-webrtc:owt - Build OpenWebRTC
+media-libs/google-webrtc:pipewire - Enable screencast portal using media-video/pipewire
 media-libs/google-webrtc:proprietary-codecs - Enable proprietary codecs
 media-libs/google-webrtc:protobuf - Enable support for dev-libs/protobuf
+media-libs/google-webrtc:pulseaudio - Adds support for PulseAudio audio input/output
+media-libs/google-webrtc:vp9 - Enables vp9 codec support using media-libs/libvpx
 media-libs/google-webrtc:x265 - Enables HEVC encoding with media-libs/x265
 media-libs/webvfx:doc - Install doxygen developer documentation
 media-video/qmplay2:animeodcinki - Build with AnimeOdcinki support
