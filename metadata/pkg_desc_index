@@ -16,8 +16,8 @@ media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and com
 media-libs/google-webrtc 84.0.4147.136: Library that provides browsers and mobile applications with Real-Time Communications
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
-media-video/celluloid 0.19 9999: A simple GTK+ frontend for mpv
-media-video/glide 0.5.6 9999: Cross-platform media player based on GStreamer and GTK+
+media-video/celluloid 0.20 9999: A simple GTK+ frontend for mpv
+media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
 net-im/srain 1.0.1 9999: Modern, beautiful IRC client written in GTK+ 3
