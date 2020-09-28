@@ -1,5 +1,5 @@
-app-editors/gxi 0.6.2 9999: GTK frontend, written in Rust, for the xi editor
-app-editors/xi-core 9999: A modern editor with a backend written in Rust
+app-editors/tau 0.11.3 9999: GTK frontend for the Xi text editor, written in Rust
+app-editors/xi-core 0.3.0 9999: A modern editor with a backend written in Rust
 app-editors/xi-gtk 9999: A GTK+ front-end for the Xi editor
 dev-cpp/asio 1.12.0 9999: Asynchronous Network Library
 dev-cpp/ethash 0.4.4 9999: C/C++ implementation of Ethash – the Ethereum Proof of Work algorithm
