@@ -4,6 +4,7 @@ DEPEND=dev-libs/hidapi dev-libs/protobuf dev-qt/qtconcurrent:5 dev-qt/qtcore:5 d
 DESCRIPTION=A free software wallet/front-end for Ethereum
 EAPI=7
 HOMEPAGE=https://www.etherwall.com/
+KEYWORDS=~x86 ~amd64
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=dev-libs/hidapi dev-libs/protobuf dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgraphicaleffects:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 net-p2p/go-ethereum virtual/libudev
