@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 
-CHECKREQS_DISK_BUILD="500M"
+CHECKREQS_DISK_BUILD="600M"
 CHECKREQS_MEMORY="400M"
 
 inherit check-reqs ninja-utils python-any-r1 toolchain-funcs
@@ -13,7 +13,7 @@ inherit check-reqs ninja-utils python-any-r1 toolchain-funcs
 DESCRIPTION="Library that provides browsers and mobile applications with Real-Time Communications"
 HOMEPAGE="https://webrtc.org/"
 MY_PN="webrtc"
-OWT_COMMIT="18721dffbee8b3d946ddbccabb8d636de7e8f197"
+OWT_COMMIT="05893df39aa23f2a7b9c611bf9d57ac44f399773"
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/${OWT_COMMIT}.tar.gz -> owt-deps-webrtc-${OWT_COMMIT::7}.tar.gz
