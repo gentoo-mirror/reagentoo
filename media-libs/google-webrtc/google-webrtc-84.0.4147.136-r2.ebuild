@@ -13,7 +13,7 @@ inherit check-reqs ninja-utils python-any-r1 toolchain-funcs
 DESCRIPTION="Library that provides browsers and mobile applications with Real-Time Communications"
 HOMEPAGE="https://webrtc.org/"
 MY_PN="webrtc"
-OWT_COMMIT="05893df39aa23f2a7b9c611bf9d57ac44f399773"
+OWT_COMMIT="decd29d05fff28a9a9ca4a305e417f39964aac05"
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/${OWT_COMMIT}.tar.gz -> owt-deps-webrtc-${OWT_COMMIT::7}.tar.gz
@@ -64,6 +64,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=( "${FILESDIR}" )
 S="${WORKDIR}/${MY_PN}"
 
 src_unpack() {
@@ -113,6 +114,9 @@ src_unpack() {
 }
 
 src_prepare() {
+	# Needed to apply Preston's patches
+	ln -s . src
+
 	default
 
 	echo >build/config/gclient_args.gni

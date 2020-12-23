@@ -1,0 +1,101 @@
+From 53cb638b5cd0cc3e1d8b59c4d32f85dbe1d0a03f Mon Sep 17 00:00:00 2001
+From: John Preston <johnprestonmail@gmail.com>
+Date: Fri, 27 Nov 2020 10:00:05 +0300
+Subject: [PATCH 2/2] Pass through missing audio ssrcs.
+
+---
+ src/media/engine/webrtc_media_engine.cc |  3 ++-
+ src/media/engine/webrtc_media_engine.h  |  2 ++
+ src/media/engine/webrtc_voice_engine.cc | 13 +++++++++++--
+ src/media/engine/webrtc_voice_engine.h  |  5 ++++-
+ 4 files changed, 19 insertions(+), 4 deletions(-)
+
+diff --git a/src/media/engine/webrtc_media_engine.cc b/src/media/engine/webrtc_media_engine.cc
+index b026b9d..ca3015f 100644
+--- a/src/media/engine/webrtc_media_engine.cc
++++ b/src/media/engine/webrtc_media_engine.cc
+@@ -32,7 +32,8 @@ std::unique_ptr<MediaEngineInterface> CreateMediaEngine(
+       std::move(dependencies.audio_encoder_factory),
+       std::move(dependencies.audio_decoder_factory),
+       std::move(dependencies.audio_mixer),
+-      std::move(dependencies.audio_processing));
++      std::move(dependencies.audio_processing),
++      std::move(dependencies.onUnknownAudioSsrc));
+ #ifdef HAVE_WEBRTC_VIDEO
+   auto video_engine = std::make_unique<WebRtcVideoEngine>(
+       std::move(dependencies.video_encoder_factory),
+diff --git a/src/media/engine/webrtc_media_engine.h b/src/media/engine/webrtc_media_engine.h
+index dbb2a5f..214d613 100644
+--- a/src/media/engine/webrtc_media_engine.h
++++ b/src/media/engine/webrtc_media_engine.h
+@@ -48,6 +48,8 @@ struct MediaEngineDependencies {
+ 
+   std::unique_ptr<webrtc::VideoEncoderFactory> video_encoder_factory;
+   std::unique_ptr<webrtc::VideoDecoderFactory> video_decoder_factory;
++
++  std::function<void(uint32_t)> onUnknownAudioSsrc = nullptr;
+ };
+ 
+ // CreateMediaEngine may be called on any thread, though the engine is
+diff --git a/src/media/engine/webrtc_voice_engine.cc b/src/media/engine/webrtc_voice_engine.cc
+index 42109e8..9bc87dc 100644
+--- a/src/media/engine/webrtc_voice_engine.cc
++++ b/src/media/engine/webrtc_voice_engine.cc
+@@ -193,13 +193,15 @@ WebRtcVoiceEngine::WebRtcVoiceEngine(
+     const rtc::scoped_refptr<webrtc::AudioEncoderFactory>& encoder_factory,
+     const rtc::scoped_refptr<webrtc::AudioDecoderFactory>& decoder_factory,
+     rtc::scoped_refptr<webrtc::AudioMixer> audio_mixer,
+-    rtc::scoped_refptr<webrtc::AudioProcessing> audio_processing)
++    rtc::scoped_refptr<webrtc::AudioProcessing> audio_processing,
++    std::function<void(uint32_t)> onUnknownAudioSsrc)
+     : task_queue_factory_(task_queue_factory),
+       adm_(adm),
+       encoder_factory_(encoder_factory),
+       decoder_factory_(decoder_factory),
+       audio_mixer_(audio_mixer),
+-      apm_(audio_processing) {
++      apm_(audio_processing),
++      onUnknownAudioSsrc_(onUnknownAudioSsrc) {
+   // This may be called from any thread, so detach thread checkers.
+   worker_thread_checker_.Detach();
+   signal_thread_checker_.Detach();
+@@ -2072,6 +2074,13 @@ void WebRtcVoiceMediaChannel::OnPacketReceived(rtc::CopyOnWriteBuffer packet,
+   }
+   RTC_DCHECK(!absl::c_linear_search(unsignaled_recv_ssrcs_, ssrc));
+ 
++  if (engine()->onUnknownAudioSsrc_) {
++    engine()->onUnknownAudioSsrc_(ssrc);
++  }
++
++  // We don't want to process unsignalled streams
++  return;
++
+   // Add new stream.
+   StreamParams sp = unsignaled_stream_params_;
+   sp.ssrcs.push_back(ssrc);
+diff --git a/src/media/engine/webrtc_voice_engine.h b/src/media/engine/webrtc_voice_engine.h
+index 86a7a49..7e86897 100644
+--- a/src/media/engine/webrtc_voice_engine.h
++++ b/src/media/engine/webrtc_voice_engine.h
+@@ -49,7 +49,8 @@ class WebRtcVoiceEngine final : public VoiceEngineInterface {
+       const rtc::scoped_refptr<webrtc::AudioEncoderFactory>& encoder_factory,
+       const rtc::scoped_refptr<webrtc::AudioDecoderFactory>& decoder_factory,
+       rtc::scoped_refptr<webrtc::AudioMixer> audio_mixer,
+-      rtc::scoped_refptr<webrtc::AudioProcessing> audio_processing);
++      rtc::scoped_refptr<webrtc::AudioProcessing> audio_processing,
++      std::function<void(uint32_t)> onUnknownAudioSsrc);
+   ~WebRtcVoiceEngine() override;
+ 
+   // Does initialization that needs to occur on the worker thread.
+@@ -128,6 +129,8 @@ class WebRtcVoiceEngine final : public VoiceEngineInterface {
+   int audio_jitter_buffer_min_delay_ms_ = 0;
+   bool audio_jitter_buffer_enable_rtx_handling_ = false;
+ 
++  std::function<void(uint32_t)> onUnknownAudioSsrc_ = nullptr;
++
+   RTC_DISALLOW_IMPLICIT_CONSTRUCTORS(WebRtcVoiceEngine);
+ };
+ 
+-- 
+2.29.2
+
