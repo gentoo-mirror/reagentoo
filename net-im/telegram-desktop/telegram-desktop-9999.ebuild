@@ -28,7 +28,7 @@ else
 	MY_PN="tdesktop"
 	MY_P="${MY_PN}-${PV}-full"
 
-	QTBASE_VER="5.15.1"
+	QTBASE_VER="5.15.2"
 	RANGE_V3_VER="0.11.0"
 
 	SRC_URI="
