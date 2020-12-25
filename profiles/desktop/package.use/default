@@ -14,3 +14,6 @@ dev-lang/python:2.7 sqlite
 
 # required by media-video/celluloid
 media-video/mpv libmpv
+
+# required by net-misc/remmina[rdp]
+net-misc/freerdp X
