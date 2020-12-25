@@ -21,10 +21,6 @@ app-crypt/pinentry gnome-keyring
 # required by gnome-base/gnome-shell
 app-text/xmlto text
 
-# required by dev-util/itstool
-# required by gnome-base/gnome-desktop
-dev-libs/libxml2 python
-
 # required by gnome-base/gnome-shell
 # required by virtual/notification-daemon[gnome]
 # required by gnome-extra/nm-applet
