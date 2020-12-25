@@ -1,4 +1,5 @@
 app-admin/eclean-kernel
+app-admin/sudo
 app-eselect/eselect-repository
 app-portage/gentoolkit
 net-misc/dhcpcd
