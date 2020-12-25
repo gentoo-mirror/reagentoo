@@ -7,6 +7,3 @@ sys-fs/fuse-exfat suid
 
 # required by sys-kernel/genkernel
 sys-apps/util-linux static-libs
-
-# required by sys-apps/apparmor-utils
-sys-libs/libapparmor perl python
