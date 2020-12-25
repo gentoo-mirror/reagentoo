@@ -1,2 +1,2 @@
-USE="${USE} -lua -perl -python"
+USE="${USE} -lua -perl"
 USE="${USE} apparmor icu iproute2 json threads"

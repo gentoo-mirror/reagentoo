@@ -30,6 +30,10 @@ dev-libs/libxml2 python
 # required by gnome-extra/nm-applet
 gnome-base/gnome-control-center networkmanager
 
+# required by media-libs/clutter[egl]
+# required by gnome-extra/gnome-shell-extensions
+media-libs/cogl gles2
+
 # required by x11-libs/gtk+:3
 media-libs/libepoxy X
 
