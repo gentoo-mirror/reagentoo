@@ -1,0 +1,25 @@
+From 1b09cf24b866365aebcca7c387e08189cc093192 Mon Sep 17 00:00:00 2001
+From: John Preston <johnprestonmail@gmail.com>
+Date: Wed, 19 Aug 2020 20:33:41 +0400
+Subject: [PATCH] Patch: Fix comparator invariant.
+
+---
+ src/p2p/base/basic_ice_controller.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/p2p/base/basic_ice_controller.cc b/src/p2p/base/basic_ice_controller.cc
+index aa20025..506bf5c 100644
+--- a/src/p2p/base/basic_ice_controller.cc
++++ b/src/p2p/base/basic_ice_controller.cc
+@@ -195,7 +195,7 @@ const Connection* BasicIceController::FindNextPingableConnection() {
+         if (conn1 == conn2) {
+           return false;
+         }
+-        return MorePingable(conn1, conn2) == conn2;
++        return MorePingable(std::min(conn1, conn2), std::max(conn1, conn2)) == conn2;
+       });
+   if (iter != pingable_connections.end()) {
+     return *iter;
+-- 
+2.30.0
+

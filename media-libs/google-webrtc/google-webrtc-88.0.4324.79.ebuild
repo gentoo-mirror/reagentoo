@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{6..9} )
 
 CHECKREQS_DISK_BUILD="600M"
 CHECKREQS_MEMORY="400M"
@@ -13,7 +13,7 @@ inherit check-reqs ninja-utils python-any-r1 toolchain-funcs
 DESCRIPTION="Library that provides browsers and mobile applications with Real-Time Communications"
 HOMEPAGE="https://webrtc.org/"
 MY_PN="webrtc"
-OWT_COMMIT="decd29d05fff28a9a9ca4a305e417f39964aac05"
+OWT_COMMIT="05d78cc78a30bd97e6411b8180b4dd24d6027efa"
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/${OWT_COMMIT}.tar.gz -> owt-deps-webrtc-${OWT_COMMIT::7}.tar.gz
@@ -22,18 +22,19 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="absl c++17 +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X"
+IUSE="absl c++20 libaom +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X"
 REQUIRED_USE="
 	!owt? ( !x265 )
 "
 
+# Add this dependency with libvpx-1.9.1
+# >=media-libs/libvpx-1.9.1:=
 COMMON_DEPEND="
 	dev-libs/openssl:0=
 	>=media-libs/alsa-lib-1.0.19:=
 	media-libs/freetype:=
 	>=media-libs/harfbuzz-2.4.0:0=
 	media-libs/libjpeg-turbo:=
-	>=media-libs/libvpx-1.8.2:=
 	>=media-libs/openh264-1.6.0:=
 	>=media-libs/opus-1.3.1:=
 	>=media-video/ffmpeg-4:=
@@ -72,6 +73,7 @@ src_unpack() {
 		{build,buildtools,testing,tools}
 
 		third_party/abseil-cpp
+		third_party/closure_compiler
 		third_party/googletest/BUILD.gn
 		third_party/harfbuzz-ng/BUILD.gn
 		third_party/jsoncpp/BUILD.gn
@@ -83,14 +85,19 @@ src_unpack() {
 		third_party/usrsctp
 		third_party/BUILD.gn
 
+		# Remove this line with libvpx-1.9.1
+		third_party/libvpx
+
 		base/third_party/libevent/BUILD.gn
 		third_party/ffmpeg/BUILD.gn
 		third_party/harfbuzz-ng/harfbuzz.gni
 		third_party/libjpeg.gni
-		third_party/libvpx/BUILD.gn
 		third_party/openh264/BUILD.gn
 		third_party/opus/BUILD.gn
 		third_party/zlib/BUILD.gn
+
+		# Add this line with libvpx-1.9.1
+		# third_party/libvpx/BUILD.gn
 	)
 
 	local webrtc_path
@@ -149,7 +156,6 @@ src_prepare() {
 	local mycflags=(
 		# Prevent -W* QA Notice.
 		-Wno-address
-
 		-Wno-array-bounds
 	)
 
@@ -160,10 +166,7 @@ src_prepare() {
 		build/config/compiler/BUILD.gn || die
 
 	# Fix compilation using GCC>=10 and Clang>=10.0.1.
-	sed -i -e '/#define.*_H_$/a #include <cstddef>' \
-		modules/audio_processing/aec3/clockdrift_detector.h || die
-	sed -i -e '/#define.*_H_$/a #include <stdint.h>' \
-		call/rtx_receive_stream.h \
+	sed -i -e '/#define.*_H_$/a #include <cstdint>' \
 		common_video/h264/pps_parser.h \
 		common_video/h264/sps_parser.h \
 		modules/congestion_controller/rtp/transport_feedback_demuxer.h \
@@ -184,13 +187,19 @@ src_prepare() {
 			build/config/compiler/BUILD.gn || die
 	fi
 
-	if use c++17
+	if use c++20
 	then
-		sed -i -e '/cflags_cc.*standard_prefix/ s:14:17:' \
+		sed -i -e '/cflags_cc.*standard_prefix/ s:++14:++20:' \
 			build/config/compiler/BUILD.gn || die
 
 		sed -i -e '/#define.*_H_$/a #include <memory>' \
 			modules/audio_processing/aec3/reverb_model_estimator.h || die
+	fi
+
+	if use !libaom
+	then
+		sed -i -e '/enable_libaom/ s:true:false:' \
+			.gn || die
 	fi
 
 	if use owt
@@ -204,12 +213,8 @@ src_prepare() {
 			-e 's/owt_use_openssl/build_with_mozilla/' \
 			webrtc.gni || die
 
-		cat third_party/webrtc/build_overrides/build.gni \
-			| sed '/^declare_args.*{/,/^}/!d' \
-			>>build_overrides/build.gni || die
-
 		# Fix compilation using GCC>=10 and Clang>=10.0.1.
-		sed -i -e '/#define.*_H_$/a #include <stdint.h>' \
+		sed -i -e '/#define.*_H_$/a #include <cstdint>' \
 			common_video/h264/prefix_parser.h \
 			common_video/h265/h265_common.h \
 			common_video/h265/h265_pps_parser.h || die
@@ -238,10 +243,13 @@ src_configure() {
 		ffmpeg
 		freetype
 		harfbuzz-ng
-		lib{event,jpeg,vpx}
+		lib{event,jpeg}
 		openh264
 		opus
 		zlib
+
+		# Add this line with libvpx-1.9.1
+		# libvpx
 	)
 
 	einfo "Replacing gn files..."
@@ -383,7 +391,6 @@ src_install() {
 			-e "/\/win/d"
 	)
 
-	webrtc_hdr_list+=( "common_types.h" )
 	rsync --relative ${webrtc_hdr_list[@]} "${include_install_dir}" || die
 
 	if use absl

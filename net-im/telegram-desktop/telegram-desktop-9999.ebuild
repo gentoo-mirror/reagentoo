@@ -43,7 +43,7 @@ fi
 
 LICENSE="GPL-3-with-openssl-exception"
 SLOT="0"
-IUSE="alsa crashreporter custom-api-id dbus debug enchant gtk3 +hunspell +pulseaudio test +webrtc +X"
+IUSE="alsa crashreporter custom-api-id dbus debug enchant gtk3 +hunspell +pulseaudio test wayland +webrtc +X"
 
 REQUIRED_USE="
 	|| ( alsa pulseaudio )
@@ -55,7 +55,7 @@ RDEPEND="
 	app-arch/xz-utils
 	dev-libs/openssl:0
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5[dbus?,jpeg,png,wayland,X(-)?]
+	dev-qt/qtgui:5[dbus?,jpeg,png,wayland?,X(-)?]
 	dev-qt/qtimageformats:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5[png,X(-)?]
@@ -82,8 +82,9 @@ RDEPEND="
 	hunspell? ( >=app-text/hunspell-1.7:= )
 	pulseaudio? ( media-sound/pulseaudio )
 	test? ( dev-cpp/catch )
+	wayland? ( kde-frameworks/kwayland )
 	webrtc? (
-		media-libs/google-webrtc[absl,c++17,libevent,owt,proprietary-codecs,x265]
+		media-libs/google-webrtc[absl,c++20,libevent,owt,proprietary-codecs,x265]
 	)
 "
 DEPEND="
@@ -259,6 +260,7 @@ src_configure() {
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=$(usex !crashreporter)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !enchant $(usex !hunspell))
+		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_DISABLE_WEBRTC_INTEGRATION=$(usex !webrtc)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 		-DTDESKTOP_DISABLE_GTK_INTEGRATION=$(usex !gtk3)
