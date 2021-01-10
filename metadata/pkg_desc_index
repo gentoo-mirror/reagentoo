@@ -13,7 +13,7 @@ games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
 gnome-extra/budgie-desktop 10.5 9999: Desktop Environment based on GNOME 3
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
-media-libs/google-webrtc 84.0.4147.136-r2: Library that provides browsers and mobile applications with Real-Time Communications
+media-libs/google-webrtc 88.0.4324.79: Library that provides browsers and mobile applications with Real-Time Communications
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
 media-video/celluloid 0.20 9999: A simple GTK+ frontend for mpv
@@ -21,7 +21,7 @@ media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and
 media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
 net-im/srain 1.1.2 9999: Modern, beautiful IRC client written in GTK+ 3
-net-im/telegram-desktop 2.5.1 9999: Official desktop client for Telegram
+net-im/telegram-desktop 2.5.4 9999: Official desktop client for Telegram
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-libs/tdlib 9999: Cross-platform library for building Telegram clients
 net-misc/cargo-local-serve 9999: Serve a local, offline, clone of crates.io
