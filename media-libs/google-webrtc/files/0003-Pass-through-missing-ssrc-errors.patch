@@ -1,24 +1,26 @@
-From 014bc1744334181c6d30f4f51ecf0b10ea8f1415 Mon Sep 17 00:00:00 2001
+From fcedf11b50f9370b595e86b0e8f5c43ed2d793f4 Mon Sep 17 00:00:00 2001
 From: John Preston <johnprestonmail@gmail.com>
 Date: Fri, 27 Nov 2020 09:48:15 +0300
-Subject: [PATCH 1/2] Pass through missing ssrc errors.
+Subject: [PATCH] Pass through missing ssrc errors.
 
 ---
- src/api/peer_connection_interface.h |  2 ++
- src/pc/dtls_srtp_transport.h        | 12 ++++++++++++
- src/pc/jsep_transport_controller.cc |  7 +++++++
- src/pc/jsep_transport_controller.h  |  5 ++++-
- src/pc/peer_connection.cc           | 20 ++++++++++++++++++++
- src/pc/peer_connection.h            |  2 ++
- src/pc/rtp_transport.cc             |  5 +++++
- src/pc/rtp_transport.h              |  4 +++-
- 8 files changed, 55 insertions(+), 2 deletions(-)
+ src/api/peer_connection_interface.h       |  2 ++
+ src/pc/dtls_srtp_transport.h              | 12 ++++++++++++
+ src/pc/jsep_transport_controller.cc       |  7 +++++++
+ src/pc/jsep_transport_controller.h        |  5 ++++-
+ src/pc/peer_connection.cc                 | 10 ++++++++++
+ src/pc/peer_connection.h                  |  2 ++
+ src/pc/peer_connection_message_handler.cc | 18 ++++++++++++++++++
+ src/pc/peer_connection_message_handler.h  |  1 +
+ src/pc/rtp_transport.cc                   |  5 +++++
+ src/pc/rtp_transport.h                    |  4 +++-
+ 10 files changed, 64 insertions(+), 2 deletions(-)
 
 diff --git a/src/api/peer_connection_interface.h b/src/api/peer_connection_interface.h
-index 0ae47b2..b5555f3 100644
+index 92d965b..765b597 100644
 --- a/src/api/peer_connection_interface.h
 +++ b/src/api/peer_connection_interface.h
-@@ -1264,6 +1264,8 @@ class PeerConnectionObserver {
+@@ -1296,6 +1296,8 @@ class PeerConnectionObserver {
    // The heuristics for defining what constitutes "interesting" are
    // implementation-defined.
    virtual void OnInterestingUsage(int usage_pattern) {}
@@ -58,10 +60,10 @@ index c63a3ca..a7bc938 100644
  
  }  // namespace webrtc
 diff --git a/src/pc/jsep_transport_controller.cc b/src/pc/jsep_transport_controller.cc
-index 0687a06..7935fc1 100644
+index 4999f2a..47f381c 100644
 --- a/src/pc/jsep_transport_controller.cc
 +++ b/src/pc/jsep_transport_controller.cc
-@@ -580,6 +580,9 @@ JsepTransportController::CreateDtlsSrtpTransport(
+@@ -535,6 +535,9 @@ JsepTransportController::CreateDtlsSrtpTransport(
        config_.active_reset_srtp_params);
    dtls_srtp_transport->SignalDtlsStateChange.connect(
        this, &JsepTransportController::UpdateAggregateStates_n);
@@ -71,7 +73,7 @@ index 0687a06..7935fc1 100644
    return dtls_srtp_transport;
  }
  
-@@ -1654,6 +1657,10 @@ void JsepTransportController::UpdateAggregateStates_n() {
+@@ -1399,6 +1402,10 @@ void JsepTransportController::UpdateAggregateStates_n() {
    }
  }
  
@@ -83,10 +85,10 @@ index 0687a06..7935fc1 100644
      rtc::CopyOnWriteBuffer* packet,
      int64_t packet_time_us) {
 diff --git a/src/pc/jsep_transport_controller.h b/src/pc/jsep_transport_controller.h
-index c966e74..108fdb6 100644
+index f0adeed..ae14e28 100644
 --- a/src/pc/jsep_transport_controller.h
 +++ b/src/pc/jsep_transport_controller.h
-@@ -268,6 +268,8 @@ class JsepTransportController : public sigslot::has_slots<> {
+@@ -226,6 +226,8 @@ class JsepTransportController : public sigslot::has_slots<> {
  
    sigslot::signal1<rtc::SSLHandshakeError> SignalDtlsHandshakeError;
  
@@ -95,9 +97,9 @@ index c966e74..108fdb6 100644
   private:
    RTCError ApplyDescription_n(bool local,
                                SdpType type,
-@@ -414,7 +416,8 @@ class JsepTransportController : public sigslot::has_slots<> {
-       DataChannelTransportInterface* data_channel_transport);
- 
+@@ -349,7 +351,8 @@ class JsepTransportController : public sigslot::has_slots<> {
+   void OnTransportCandidatePairChanged_n(
+       const cricket::CandidatePairChangeEvent& event);
    void UpdateAggregateStates_n();
 -
 +  void ErrorDemuxingPacket_n(uint32_t ssrc);
@@ -106,77 +108,106 @@ index c966e74..108fdb6 100644
                                int64_t packet_time_us);
  
 diff --git a/src/pc/peer_connection.cc b/src/pc/peer_connection.cc
-index 14281eb..cf8ab7b 100644
+index 9ba7dae..8a6c85c 100644
 --- a/src/pc/peer_connection.cc
 +++ b/src/pc/peer_connection.cc
-@@ -136,6 +136,7 @@ enum {
-   MSG_CREATE_SESSIONDESCRIPTION_FAILED,
-   MSG_GETSTATS,
-   MSG_REPORT_USAGE_PATTERN,
-+  MSG_ON_ERROR_DEMUXING_PACKET,
- };
- 
- static const int REPORT_USAGE_PATTERN_DELAY_MS = 60000;
-@@ -166,6 +167,13 @@ struct GetStatsMsg : public rtc::MessageData {
-   rtc::scoped_refptr<webrtc::MediaStreamTrackInterface> track;
- };
- 
-+struct OnErrorDemuxingPacketMsg : public rtc::MessageData {
-+  explicit OnErrorDemuxingPacketMsg(uint32_t ssrc)
-+      : ssrc(ssrc) {}
-+
-+  uint32_t ssrc;
-+};
-+
- // Check if we can send |new_stream| on a PeerConnection.
- bool CanAddLocalMediaStream(webrtc::StreamCollectionInterface* current_streams,
-                             webrtc::MediaStreamInterface* new_stream) {
-@@ -1347,6 +1355,8 @@ bool PeerConnection::Initialize(
+@@ -622,6 +622,8 @@ RTCError PeerConnection::Initialize(
        this, &PeerConnection::OnTransportControllerDtlsHandshakeError);
    transport_controller_->SignalIceCandidatePairChanged.connect(
        this, &PeerConnection::OnTransportControllerCandidateChanged);
 +  transport_controller_->SignalErrorDemuxingPacket.connect(
 +      this, &PeerConnection::OnErrorDemuxingPacket);
  
-   stats_.reset(new StatsCollector(this));
-   stats_collector_ = RTCStatsCollector::Create(this);
-@@ -4511,6 +4521,12 @@ void PeerConnection::OnMessage(rtc::Message* msg) {
-       ReportUsagePattern();
-       break;
-     }
-+    case MSG_ON_ERROR_DEMUXING_PACKET: {
-+      OnErrorDemuxingPacketMsg* param = static_cast<OnErrorDemuxingPacketMsg*>(msg->pdata);
-+      Observer()->OnErrorDemuxingPacket(param->ssrc);
-+      delete param;
-+      break;
-+    }
-     default:
-       RTC_NOTREACHED() << "Not implemented";
-       break;
-@@ -6393,6 +6409,10 @@ void PeerConnection::OnTransportControllerCandidateChanged(
+   transport_controller_->SignalIceConnectionState.AddReceiver(
+       [this](cricket::IceConnectionState s) {
+@@ -2166,6 +2168,14 @@ void PeerConnection::OnTransportControllerCandidateChanged(
    OnSelectedCandidatePairChanged(event);
  }
  
 +void PeerConnection::OnErrorDemuxingPacket(uint32_t ssrc) {
-+    signaling_thread()->Post(RTC_FROM_HERE, this, MSG_ON_ERROR_DEMUXING_PACKET, new OnErrorDemuxingPacketMsg(ssrc));
++  message_handler_.PostErrorDemuxingPacket(
++      [this, ssrc]() {
++        RTC_DCHECK_RUN_ON(signaling_thread());
++        Observer()->OnErrorDemuxingPacket(ssrc);
++      });
 +}
 +
  void PeerConnection::OnTransportControllerDtlsHandshakeError(
      rtc::SSLHandshakeError error) {
    RTC_HISTOGRAM_ENUMERATION(
 diff --git a/src/pc/peer_connection.h b/src/pc/peer_connection.h
-index f310257..798cd9c 100644
+index 8768ebb..5ee3f71 100644
 --- a/src/pc/peer_connection.h
 +++ b/src/pc/peer_connection.h
-@@ -1091,6 +1091,8 @@ class PeerConnection : public PeerConnectionInternal,
+@@ -567,6 +567,8 @@ class PeerConnection : public PeerConnectionInternal,
        RTC_RUN_ON(signaling_thread());
    void OnTransportControllerDtlsHandshakeError(rtc::SSLHandshakeError error);
  
 +  void OnErrorDemuxingPacket(uint32_t ssrc);
 +
-   const char* SessionErrorToString(SessionError error) const;
-   std::string GetSessionErrorMsg() RTC_RUN_ON(signaling_thread());
+   // Invoked when TransportController connection completion is signaled.
+   // Reports stats for all transports in use.
+   void ReportTransportStats() RTC_RUN_ON(signaling_thread());
+diff --git a/src/pc/peer_connection_message_handler.cc b/src/pc/peer_connection_message_handler.cc
+index b3ffcf8..54aa399 100644
+--- a/src/pc/peer_connection_message_handler.cc
++++ b/src/pc/peer_connection_message_handler.cc
+@@ -28,6 +28,7 @@ enum {
+   MSG_CREATE_SESSIONDESCRIPTION_FAILED,
+   MSG_GETSTATS,
+   MSG_REPORT_USAGE_PATTERN,
++  MSG_ON_ERROR_DEMUXING_PACKET,
+ };
  
+ struct SetSessionDescriptionMsg : public rtc::MessageData {
+@@ -58,6 +59,13 @@ struct GetStatsMsg : public rtc::MessageData {
+   rtc::scoped_refptr<webrtc::MediaStreamTrackInterface> track;
+ };
+ 
++struct OnErrorDemuxingPacketMsg : public rtc::MessageData {
++  explicit OnErrorDemuxingPacketMsg(std::function<void()> func)
++    : function(func) {}
++
++  std::function<void()> function;
++};
++
+ struct RequestUsagePatternMsg : public rtc::MessageData {
+   explicit RequestUsagePatternMsg(std::function<void()> func)
+       : function(func) {}
+@@ -124,6 +132,12 @@ void PeerConnectionMessageHandler::OnMessage(rtc::Message* msg) {
+       delete param;
+       break;
+     }
++    case MSG_ON_ERROR_DEMUXING_PACKET: {
++      OnErrorDemuxingPacketMsg* param = static_cast<OnErrorDemuxingPacketMsg*>(msg->pdata);
++      param->function();
++      delete param;
++      break;
++    }
+     default:
+       RTC_NOTREACHED() << "Not implemented";
+       break;
+@@ -173,4 +187,8 @@ void PeerConnectionMessageHandler::RequestUsagePatternReport(
+                                   new RequestUsagePatternMsg(func));
+ }
+ 
++void PeerConnectionMessageHandler::PostErrorDemuxingPacket(std::function<void()> func) {
++  signaling_thread()->Post(RTC_FROM_HERE, this, MSG_ON_ERROR_DEMUXING_PACKET, new OnErrorDemuxingPacketMsg(func));
++}
++
+ }  // namespace webrtc
+diff --git a/src/pc/peer_connection_message_handler.h b/src/pc/peer_connection_message_handler.h
+index 027fbea..b21f837 100644
+--- a/src/pc/peer_connection_message_handler.h
++++ b/src/pc/peer_connection_message_handler.h
+@@ -43,6 +43,7 @@ class PeerConnectionMessageHandler : public rtc::MessageHandler {
+                     StatsCollectorInterface* stats,
+                     MediaStreamTrackInterface* track);
+   void RequestUsagePatternReport(std::function<void()>, int delay_ms);
++  void PostErrorDemuxingPacket(std::function<void()>);
+ 
+  private:
+   rtc::Thread* signaling_thread() const { return signaling_thread_; }
 diff --git a/src/pc/rtp_transport.cc b/src/pc/rtp_transport.cc
 index fe7357f..0f4a820 100644
 --- a/src/pc/rtp_transport.cc
@@ -212,5 +243,5 @@ index 57ad9e5..0992477 100644
    // These methods will be used in the subclasses.
    void DemuxPacket(rtc::CopyOnWriteBuffer packet, int64_t packet_time_us);
 -- 
-2.29.2
+2.30.0
 
