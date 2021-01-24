@@ -1,6 +1,6 @@
 @r-desktop
 
-app-emulation/libpod
+app-emulation/podman
 app-emulation/qemu
 dev-util/gnome-builder
 dev-util/meld
