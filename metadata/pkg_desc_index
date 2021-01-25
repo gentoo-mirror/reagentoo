@@ -40,6 +40,7 @@ net-proxy/mtproxy-rs 9999: MTProto Proxy Server
 sci-electronics/eagle 8.5.2: Autodesk EAGLE schematic and printed circuit board (PCB) layout editor
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
+sys-boot/egrub 9999: GRUB wrappers and automation scripts
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
 sys-libs/libcpuid 0.4.0 9999: Small C library for x86 CPU detection and feature extraction
 www-plugins/ublock-origin 1.25.2 9999: The Fastest, Most-Powerful Ad Blocker

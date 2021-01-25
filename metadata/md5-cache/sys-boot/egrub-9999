@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=net-misc/rsync sys-apps/gptfdisk sys-apps/util-linux sys-block/parted sys-boot/grub sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/exfat-utils
+DESCRIPTION=GRUB wrappers and automation scripts
+EAPI=7
+HOMEPAGE=https://gitlab.com/reagentoo/egrub
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=net-misc/rsync sys-apps/gptfdisk sys-apps/util-linux sys-block/parted sys-boot/grub sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/exfat-utils
+SLOT=0
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_md5_=a9284c6f377b9f60cb358565bb82ccf5
