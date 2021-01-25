@@ -20,8 +20,7 @@ DEPEND="
 	sys-block/parted
 	sys-boot/grub
 	sys-fs/dosfstools
-	sys-fs/e2fsprogs
-	sys-fs/exfat-utils
+	sys-fs/f2fs-tools
 "
 RDEPEND="${DEPEND}"
 
