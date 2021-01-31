@@ -9,7 +9,6 @@ dev-cpp/libjson-rpc-cpp 0.7.0: JSON-RPC (1.0 & 2.0) framework for C++
 dev-cpp/uri 0_p20180219 9999: Implements a generic URI parser, compatible with RFC 3986 and RFC 3987
 dev-util/binaryen 1.37.36 9999: Сompiler and toolchain infrastructure library for WebAssembly, written in C++
 dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash reporting system
-games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
 gnome-extra/budgie-desktop 10.5 9999: Desktop Environment based on GNOME 3
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
