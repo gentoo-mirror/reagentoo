@@ -254,13 +254,12 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DDESKTOP_APP_USE_PACKAGED=ON
-
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=$(usex !crashreporter)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
+		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex !gtk3)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !enchant $(usex !hunspell))
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
-		-DTDESKTOP_DISABLE_GTK_INTEGRATION=$(usex !gtk3)
 	)
 
 	cmake_src_configure
