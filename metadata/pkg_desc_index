@@ -12,6 +12,7 @@ dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash r
 games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
 gnome-extra/budgie-desktop 10.5 9999: Desktop Environment based on GNOME 3
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
+media-gfx/drawing 0.6.5 9999: A drawing application for the GNOME desktop
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/google-webrtc 88.0.4324.79: Library that provides browsers and mobile applications with Real-Time Communications
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
