@@ -22,7 +22,7 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="absl c++20 libaom +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X"
+IUSE="absl c++17 libaom +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X"
 REQUIRED_USE="
 	!owt? ( !x265 )
 "
@@ -187,9 +187,9 @@ src_prepare() {
 			build/config/compiler/BUILD.gn || die
 	fi
 
-	if use c++20
+	if use c++17
 	then
-		sed -i -e '/cflags_cc.*standard_prefix/ s:++14:++20:' \
+		sed -i -e '/cflags_cc.*standard_prefix/ s:++14:++17:' \
 			build/config/compiler/BUILD.gn || die
 
 		sed -i -e '/#define.*_H_$/a #include <memory>' \

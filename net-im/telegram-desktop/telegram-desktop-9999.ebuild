@@ -60,7 +60,7 @@ RDEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5[png,X(-)?]
 	media-libs/fontconfig:=
-	media-libs/google-webrtc[absl,c++20,libevent,owt,proprietary-codecs,x265]
+	media-libs/google-webrtc[absl,c++17,libevent,owt,proprietary-codecs,x265]
 	media-libs/openal[alsa?,pulseaudio?]
 	media-libs/opus:=
 	media-video/ffmpeg:=[alsa?,opus,pulseaudio?]
