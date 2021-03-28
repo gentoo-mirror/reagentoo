@@ -4,6 +4,7 @@ DEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:= 
 DESCRIPTION=Library that provides browsers and mobile applications with Real-Time Communications
 EAPI=7
 HOMEPAGE=https://webrtc.org/
+INHERIT=check-reqs ninja-utils python-any-r1 toolchain-funcs
 IUSE=absl c++17 libaom +libevent owt pipewire +proprietary-codecs +pulseaudio protobuf +vp9 x265 X
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=BSD
@@ -11,5 +12,5 @@ RDEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:=
 REQUIRED_USE=!owt? ( !x265 )
 SLOT=0
 SRC_URI=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-88.0.4324.79.tar.xz https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/05d78cc78a30bd97e6411b8180b4dd24d6027efa.tar.gz -> owt-deps-webrtc-05d78cc.tar.gz
-_eclasses_=check-reqs	7e3fd1855a5e1b50bb9e80827b3f672d	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-any-r1	0a79a9b53fce4525f438f8ea9695fb88	python-utils-r1	2dc8e06a3429719b43e9140f7292a425	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=check-reqs	7e3fd1855a5e1b50bb9e80827b3f672d	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	543b53e4d003ebd889082f4673e52af5	python-any-r1	690a993463cd2ebcde40ccdf1bd9ba98
 _md5_=4812f03046523f44491c90efb21e6695
