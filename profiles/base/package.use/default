@@ -1,4 +1,3 @@
-dev-lang/rust system-llvm
 net-libs/nodejs -npm
 sys-apps/firejail suid
 sys-boot/grub device-mapper
