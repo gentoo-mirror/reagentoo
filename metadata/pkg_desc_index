@@ -19,7 +19,6 @@ media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
 media-sound/spot 0.1.11 9999: spot
 media-video/celluloid 0.20 9999: A simple GTK+ frontend for mpv
 media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and GTK+
-media-video/qmplay2 18.07.03 18.12.26 9999: Qt-based video player, which can play all formats and stream
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
 net-im/srain 1.1.2 9999: Modern, beautiful IRC client written in GTK+ 3
 net-im/telegram-desktop 2.9.0 9999: Official desktop client for Telegram
@@ -45,5 +44,4 @@ sys-boot/egrub 9999: GRUB wrappers and automation scripts
 sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
 sys-libs/libcpuid 0.4.0 9999: Small C library for x86 CPU detection and feature extraction
 www-plugins/ublock-origin 1.25.2 9999: The Fastest, Most-Powerful Ad Blocker
-x11-misc/sunflower 9999: Small and highly customizable twin-panel file manager with plugin-support
 x11-terms/galacritty 9999: GTK 3 terminal emulator based on the GPU-accelerated Alacritty core
