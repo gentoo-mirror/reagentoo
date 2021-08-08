@@ -42,7 +42,7 @@ net-im/telegram-desktop:dbus - Enable D-Bus notifiications and system tray suppo
 net-im/telegram-desktop:effects - Enable OpenAL effects
 net-im/telegram-desktop:enchant - Enable spellchecking using app-text/enchant
 net-im/telegram-desktop:fontconfig - Use custom fonts.conf
-net-im/telegram-desktop:gtk3 - Enable support for GTK+3
+net-im/telegram-desktop:gtk - Enable support for GTK+
 net-im/telegram-desktop:hunspell - Enable spellchecking using app-text/hunspell
 net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
 net-im/telegram-desktop:test - Build and run the test-suite
