@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..9} )
-inherit desktop git-r3 l10n python-r1 xdg
+PYTHON_COMPAT=( python3_{7..10} )
+inherit desktop git-r3 python-r1 xdg
 
 MY_PN="${PN^}"
 
@@ -19,12 +19,13 @@ KEYWORDS=""
 IUSE="nls"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
-	gnome-base/librsvg:2
+DEPEND="
+	${PYTHON_DEPS}
+	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
+"
+RDEPEND="${DEPEND}
 	dev-python/pycairo[${PYTHON_USEDEP}]
-	dev-python/pygobject[${PYTHON_USEDEP}]
 "
 BDEPEND="nls? ( sys-devel/gettext )"
 
@@ -33,11 +34,6 @@ src_prepare() {
 
 	find "${S}/translations" -name "*.mo" -delete || die
 	rm "${S}/translations/${PN}.pot" || die
-
-	if use nls
-	then
-		strip-linguas $(ls -1 translations)
-	fi
 }
 
 src_compile() {
@@ -45,7 +41,7 @@ src_compile() {
 	then
 		local lang
 
-		for lang in ${LINGUAS}
+		for lang in $(ls -1 translations)
 		do
 			msgfmt -o translations/${lang}/LC_MESSAGES/sunflower.{m,p}o || die
 		done
@@ -78,7 +74,7 @@ src_install() {
 	then
 		local lang
 
-		for lang in ${LINGUAS}
+		for lang in $(ls -1 translations)
 		do
 			insinto /usr/share/locale/${lang}/LC_MESSAGES
 			doins translations/${lang}/LC_MESSAGES/sunflower.mo
