@@ -15,6 +15,7 @@
 		<flag name="gtk">Enable support for GTK+</flag>
 		<flag name="hunspell">Enable spellchecking using <pkg>app-text/hunspell</pkg></flag>
 		<flag name="pulseaudio">Adds support for PulseAudio audio input/output</flag>
+		<flag name="screencast">Enable support for remote desktop and screen cast using <pkg>media-video/pipewire</pkg></flag>
 		<flag name="test">Build and run the test-suite</flag>
 	</use>
 </pkgmetadata>
