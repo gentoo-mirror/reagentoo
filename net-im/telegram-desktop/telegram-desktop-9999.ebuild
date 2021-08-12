@@ -43,7 +43,7 @@ fi
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-IUSE="alsa crashreporter custom-api-id dbus enchant +gtk +hunspell +pulseaudio test wayland webkit +X"
+IUSE="alsa crashreporter custom-api-id dbus enchant +gtk +hunspell +pulseaudio screencast test wayland webkit +X"
 
 REQUIRED_USE="
 	|| ( alsa pulseaudio )
@@ -68,7 +68,7 @@ RDEPEND="
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210626
+	~media-libs/tg_owt-0_pre20210626[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	crashreporter? ( dev-util/google-breakpad )
@@ -95,8 +95,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-2.8.10-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-2.9.0-fix-disable-wayland-integration.patch"
+	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
 )
 
 pkg_pretend() {
