@@ -45,6 +45,7 @@ net-im/telegram-desktop:fontconfig - Use custom fonts.conf
 net-im/telegram-desktop:gtk - Enable support for GTK+
 net-im/telegram-desktop:hunspell - Enable spellchecking using app-text/hunspell
 net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
+net-im/telegram-desktop:screencast - Enable support for remote desktop and screen cast using media-video/pipewire
 net-im/telegram-desktop:test - Build and run the test-suite
 net-libs/tdlib:doc - Install doxygen developer documentation
 net-libs/tdlib:java - Add Java-bindings
