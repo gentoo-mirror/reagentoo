@@ -1,6 +1,3 @@
-# required by www-client/firefox[system-sqlite]
-dev-db/sqlite secure-delete
-
 # required by www-client/firefox
 dev-lang/python sqlite
 

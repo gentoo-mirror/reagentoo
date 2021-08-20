@@ -7,11 +7,6 @@ net-misc/remmina rdp vnc
 net-p2p/transmission gtk
 www-plugins/ublock-origin firefox
 
-# required by dev-lang/spidermonkey
-# required by sys-auth/polkit
-# required by sys-auth/elogind[policykit]
-dev-lang/python:2.7 sqlite
-
 # required by media-video/celluloid
 media-video/mpv libmpv
 
