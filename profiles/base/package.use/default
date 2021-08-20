@@ -1,8 +1,12 @@
+app-admin/eclean-kernel zstd
 net-libs/nodejs -npm
 sys-apps/firejail suid
 sys-boot/grub device-mapper
+sys-firmware/intel-microcode initramfs
 sys-fs/dosfstools compat
 sys-fs/fuse-exfat suid
+sys-kernel/linux-firmware initramfs
+sys-kernel/gentoo-kernel -initramfs
 
 # required by sys-kernel/genkernel
 sys-apps/util-linux static-libs
