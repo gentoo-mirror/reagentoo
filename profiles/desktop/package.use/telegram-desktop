@@ -5,4 +5,7 @@ net-im/telegram-desktop custom-api-id
 dev-libs/libpcre2 pcre16
 
 # required by net-im/telegram-desktop
+dev-qt/qtgui jpeg
+
+# required by net-im/telegram-desktop
 sys-libs/zlib minizip
