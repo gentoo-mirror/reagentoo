@@ -7,6 +7,12 @@ net-misc/remmina rdp vnc
 net-p2p/transmission gtk
 www-plugins/ublock-origin firefox
 
+# required by dev-libs/libappindicator
+dev-libs/libdbusmenu gtk3
+
+# REQUIRED_USE
+dev-qt/qtgui X
+
 # required by media-video/celluloid
 media-video/mpv libmpv
 
