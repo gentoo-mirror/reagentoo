@@ -1,5 +1,5 @@
 net-misc/modemmanager -qmi
-net-misc/networkmanager -wext -wifi
+net-misc/networkmanager bluetooth
 
 net-vpn/networkmanager-fortisslvpn gtk
 net-vpn/networkmanager-l2tp gtk
