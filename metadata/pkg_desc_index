@@ -21,7 +21,7 @@ media-video/celluloid 0.20 9999: A simple GTK+ frontend for mpv
 media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
 net-im/srain 1.1.2 9999: Modern, beautiful IRC client written in GTK+ 3
-net-im/telegram-desktop 2.9.3 9999: Official desktop client for Telegram
+net-im/telegram-desktop 3.0.1 9999: Official desktop client for Telegram
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-libs/tdlib 9999: Cross-platform library for building Telegram clients
 net-misc/cargo-local-serve 9999: Serve a local, offline, clone of crates.io
