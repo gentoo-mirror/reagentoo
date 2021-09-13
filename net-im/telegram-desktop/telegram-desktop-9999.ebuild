@@ -49,7 +49,7 @@ REQUIRED_USE="
 	|| ( alsa pulseaudio )
 	enchant? ( !hunspell )
 	gtk? ( dbus )
-	webkit? ( gtk )
+	webkit? ( dbus )
 "
 
 RDEPEND="
