@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -43,20 +43,19 @@ fi
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-IUSE="alsa crashreporter custom-api-id dbus enchant +gtk +hunspell +pulseaudio screencast test wayland webkit +X"
+IUSE="alsa crashreporter custom-api-id +dbus enchant +hunspell +pulseaudio screencast test wayland webkit +X"
 
 REQUIRED_USE="
 	|| ( alsa pulseaudio )
 	enchant? ( !hunspell )
-	gtk? ( dbus )
 	webkit? ( dbus )
 "
 
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
-	dev-cpp/glibmm:2
 	dev-libs/jemalloc:=[-lazy-lock]
+	dev-libs/openssl:=
 	>=dev-qt/qtcore-5.15:5
 	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X?]
 	>=dev-qt/qtimageformats-5.15:5
@@ -73,11 +72,11 @@ RDEPEND="
 	sys-libs/zlib:=[minizip]
 	crashreporter? ( dev-util/google-breakpad )
 	dbus? (
+		dev-cpp/glibmm:2
 		dev-qt/qtdbus:5
 		dev-libs/libdbusmenu-qt[qt5(+)]
 	)
 	enchant? ( app-text/enchant:= )
-	gtk? ( x11-libs/gtk+:3[X?,wayland?] )
 	hunspell? ( >=app-text/hunspell-1.7:= )
 	pulseaudio? ( media-sound/pulseaudio )
 	test? ( dev-cpp/catch )
@@ -85,18 +84,16 @@ RDEPEND="
 	webkit? ( net-libs/webkit-gtk:= )
 	X? ( x11-libs/libxcb:= )
 "
-DEPEND="
-	${PYTHON_DEPS}
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	>=dev-util/cmake-3.16
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
-)
+#PATCHES=(
+#	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
+#)
 
 pkg_pretend() {
 	if use custom-api-id
@@ -239,11 +236,10 @@ src_configure() {
 		-DDESKTOP_APP_USE_PACKAGED=ON
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=$(usex !crashreporter)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
-		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex !gtk)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !enchant $(usex !hunspell))
-		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex !webkit)
+		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 	)
 
