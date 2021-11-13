@@ -1,0 +1,4 @@
+media-sound/pulseaudio -daemon
+
+# REQUIRED_USE !daemon? ( !alsa !gdbm !orc !ssl !udev !webrtc-aec )
+media-sound/pulseaudio -alsa -gdbm -orc -ssl -udev -webrtc-aec
