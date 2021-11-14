@@ -43,12 +43,11 @@ fi
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-IUSE="alsa crashreporter custom-api-id +dbus enchant +hunspell +pulseaudio screencast test wayland webkit +X"
+IUSE="alsa crashreporter custom-api-id +dbus enchant +hunspell +pulseaudio screencast test wayland +X"
 
 REQUIRED_USE="
 	|| ( alsa pulseaudio )
 	enchant? ( !hunspell )
-	webkit? ( dbus )
 "
 
 RDEPEND="
@@ -81,7 +80,6 @@ RDEPEND="
 	pulseaudio? ( media-sound/pulseaudio )
 	test? ( dev-cpp/catch )
 	wayland? ( kde-frameworks/kwayland:= )
-	webkit? ( net-libs/webkit-gtk:= )
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}"
@@ -233,12 +231,12 @@ src_configure() {
 	append-cxxflags ${mycxxflags[@]}
 
 	local mycmakeargs=(
+		-DDESKTOP_APP_QT6=OFF
 		-DDESKTOP_APP_USE_PACKAGED=ON
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=$(usex !crashreporter)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !enchant $(usex !hunspell))
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
-		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex !webkit)
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 	)
