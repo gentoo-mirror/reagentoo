@@ -4,6 +4,7 @@
 
 app-editors/xi-core:syntect - Enable syntax highlighting plugin
 gnome-extra/budgie-desktop:pm-utils - Adds support for suspend/resume using sys-power/upower-pm-utils instead of sys-power/upower
+gui-libs/libadwaita:inspector - Build and install the libadwaita GtkInspector module
 media-libs/google-webrtc:X - Enable X11 desktop capture
 media-libs/google-webrtc:absl - Install abseil-cpp headers
 media-libs/google-webrtc:c++17 - Build using the C++17 standard
