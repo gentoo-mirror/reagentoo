@@ -66,7 +66,7 @@ RDEPEND="
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210626[screencast=,X=]
+	~media-libs/tg_owt-0_pre20211207[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	crashreporter? ( dev-util/google-breakpad )
@@ -89,9 +89,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-#PATCHES=(
-#	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
-#)
+PATCHES=(
+	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
+)
 
 pkg_pretend() {
 	if use custom-api-id
