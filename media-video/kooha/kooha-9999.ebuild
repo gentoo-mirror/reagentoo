@@ -211,6 +211,7 @@ else
 	SRC_URI="https://github.com/SeaDve/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 		$(cargo_crate_uris ${CRATES})"
 	KEYWORDS="~amd64 ~arm64 ~x86"
+	S="${WORKDIR}/${MY_PN}-${PV}"
 fi
 
 LICENSE="GPL-3"
@@ -223,8 +224,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND=""
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
 	default
