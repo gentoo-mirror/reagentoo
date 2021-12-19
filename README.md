@@ -1,21 +1,21 @@
 How to install this overlay
 ----------------------------
 
-### Layman
+### Eselect
 ```sh
-layman -a reagentoo
+eselect repository enable reagentoo
 ```
 or
 ```sh
-layman -o 'https://github.com/reagentoo/gentoo-overlay/raw/master/repositories.xml' -f -a reagentoo
+eselect repository add reagentoo git https://gitlab.com/reagentoo/gentoo-overlay.git
 ```
 
 ### Manually
 Add an entry to `/etc/portage/repos.conf`:
 ```ini
 [reagentoo]
-location = /usr/local/portage/reagentoo
-sync-uri = https://github.com/reagentoo/gentoo-overlay.git
+location = /var/db/repos/reagentoo
 sync-type = git
-auto-sync = yes
+sync-uri = https://gitlab.com/reagentoo/gentoo-overlay.git
+priority = 10
 ```
