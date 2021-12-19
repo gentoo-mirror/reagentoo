@@ -1,4 +1,4 @@
-app-editors/tau 0.11.3 9999: GTK frontend for the Xi text editor, written in Rust
+app-editors/tau 0.12.0 9999: GTK frontend for the Xi text editor, written in Rust
 app-editors/xi-core 0.3.0 9999: A modern editor with a backend written in Rust
 app-editors/xi-gtk 9999: A GTK+ front-end for the Xi editor
 dev-cpp/asio 1.12.0 9999: Asynchronous Network Library
@@ -11,6 +11,7 @@ dev-util/binaryen 1.37.36 9999: Сompiler and toolchain infrastructure library f
 dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash reporting system
 games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
 gui-libs/libadwaita 1.0.0_alpha_rc4 9999: Building blocks for modern GNOME applications
+gui-libs/libhandy 0.0.13: Library with GTK widgets for mobile phones
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/drawing 0.6.5 9999: A drawing application for the GNOME desktop
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
