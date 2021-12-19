@@ -17,12 +17,9 @@ media-gfx/drawing 0.6.5 9999: A drawing application for the GNOME desktop
 media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/google-webrtc 88.0.4324.79: Library that provides browsers and mobile applications with Real-Time Communications
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
-media-libs/webvfx 1.1.0 9999: Video effects library based on web technologies
 media-sound/spot 0.1.11 9999: spot
-media-video/celluloid 0.20 9999: A simple GTK+ frontend for mpv
 media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/kooha 2.0.1 9999: Elegantly record your screen
-media-video/shotcut 19.12.31 9999: A free, open source, cross-platform video editor
 net-im/telegram-desktop 3.3.0 9999: Official desktop client for Telegram
 net-irc/srain 1.3.0 9999: 
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
