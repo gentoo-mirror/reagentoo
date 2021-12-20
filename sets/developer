@@ -1,6 +1,6 @@
 @r-desktop
 
-app-emulation/podman
+app-containers/podman
 app-emulation/qemu
 dev-util/gnome-builder
 dev-util/meld
