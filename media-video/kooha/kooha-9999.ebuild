@@ -220,6 +220,7 @@ SLOT="0"
 RDEPEND="
 	>=dev-lang/python-3.7
 	gnome-base/gnome-shell
+	gui-libs/gtk:4[X]
 	>=gui-libs/libadwaita-1.0.0_alpha_rc1
 "
 DEPEND="${RDEPEND}"
