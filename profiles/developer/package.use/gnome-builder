@@ -1,0 +1,7 @@
+dev-util/gnome-builder -devhelp -git
+
+# compilation fix
+# required by dev-lang/ruby
+# required by net-libs/webkit-gtk
+# required by dev-util/gnome-builder
+dev-ruby/bundler -doc

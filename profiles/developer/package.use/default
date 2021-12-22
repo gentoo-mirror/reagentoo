@@ -1,5 +1,4 @@
 dev-lang/rust nightly rls
-dev-util/gnome-builder -devhelp -git
 dev-vcs/git highlight
 sys-devel/gdb source-highlight
 

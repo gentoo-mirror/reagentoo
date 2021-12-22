@@ -1,20 +1,17 @@
+dev-libs/libdbusmenu -gtk
 dev-vcs/git -gnome-keyring
 media-gfx/gthumb exif jpeg
 media-libs/libsndfile minimal
 media-sound/deadbeef aac cover-imlib2 ffmpeg gtk3 hotkeys mp3 notify vorbis
 media-video/ffmpeg amr libass libaom mp3 opus theora vorbis x264 x265
+net-dialup/ppp -gtk
+net-misc/modemmanager -qmi
+net-misc/networkmanager bluetooth -wext
 net-misc/remmina rdp vnc
-net-p2p/transmission gtk
 www-plugins/ublock-origin firefox
 
 # required by dev-libs/libappindicator
 dev-libs/libdbusmenu gtk3
 
-# REQUIRED_USE
-dev-qt/qtgui X
-
 # required by media-video/celluloid
 media-video/mpv libmpv
-
-# required by net-misc/remmina[rdp]
-net-misc/freerdp X
