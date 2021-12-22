@@ -1,8 +1,8 @@
 ACCEPT_KEYWORDS="${ARCH} ~${ARCH}"
 
 USE="${USE} -consolekit -cups -gtk2 -X -xv"
-USE="${USE} alsa dbus egl elogind policykit pulseaudio screencast udev vaapi wayland"
+USE="${USE} alsa dbus egl elogind gtk policykit pulseaudio screencast udev vaapi wayland"
 
-# Gnome related
+# Gnome related USEs
 USE="${USE} -gnome-online-accounts"
 USE="${USE} gnome gnome-keyring gnome-shell nautilus"

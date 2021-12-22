@@ -4,12 +4,8 @@ gnome-base/gnome-settings-daemon networkmanager
 gnome-base/gnome-shell -browser-extension
 gnome-base/gvfs mtp udisks
 gnome-base/nautilus -previewer
-media-libs/libcanberra -gtk
 x11-libs/gdk-pixbuf jpeg
 x11-misc/colord -gusb
-
-# required by gnome-base/gnome-keyring
-app-crypt/gcr gtk
 
 # required by gnome-base/gnome-keyring
 # required by app-crypt/libsecret
