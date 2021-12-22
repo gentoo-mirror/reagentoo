@@ -1,6 +1,0 @@
-dev-lang/rust nightly rls
-dev-vcs/git highlight
-sys-devel/gdb source-highlight
-
-# REQUIRED_USE rls? ( rust-src )
-dev-lang/rust rust-src

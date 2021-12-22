@@ -1,27 +1,70 @@
+app-emulation/qemu sdl
+app-text/evince djvu
 dev-libs/libdbusmenu -gtk
+dev-qt/qtgui eglfs
+app-misc/tracker -miners
+app-misc/tracker-miners -pdf -playlist -rss -taglib -tiff -xml
 dev-vcs/git -gnome-keyring
+gnome-base/gnome-settings-daemon networkmanager
+gnome-base/gnome-shell -browser-extension
+gnome-base/gvfs mtp udisks
+gnome-base/nautilus -previewer
 media-gfx/gthumb exif jpeg
 media-libs/libcanberra -gtk
 media-libs/libsndfile minimal
 media-sound/deadbeef aac cover-imlib2 ffmpeg gtk3 hotkeys mp3 notify vorbis
+media-sound/pulseaudio -daemon -dbus -elogind -ipv6
 media-video/ffmpeg amr libass libaom mp3 opus theora vorbis x264 x265
 net-dialup/ppp -gtk
+net-im/telegram-desktop custom-api-id
 net-misc/modemmanager -qmi
 net-misc/networkmanager bluetooth -wext
 net-misc/remmina rdp vnc
 www-plugins/ublock-origin firefox
+x11-libs/gdk-pixbuf jpeg
+x11-misc/colord -gusb
+
+# required by app-text/evince
+app-text/poppler cairo
+
+# required by x11-misc/xdg-utils
+app-text/xmlto text
+
+# required by www-client/firefox
+dev-lang/python sqlite
 
 # required by dev-libs/libappindicator
 dev-libs/libdbusmenu gtk3
 
-# REQUIRED_USE
-dev-qt/qtgui X
+# required by dev-qt/qtcore
+dev-libs/libpcre2 pcre16
 
-# required by media-video/kooha
-gui-libs/gtk:4 X
+# required by net-im/telegram-desktop
+dev-qt/qtgui jpeg
+
+# required by gnome-base/gnome-shell
+gnome-base/gnome-control-center networkmanager
+
+# required by media-libs/clutter[egl]
+media-libs/cogl gles2
+
+# required by www-client/firefox[system-png]
+media-libs/libpng apng
+
+# required by media-libs/libsdl2[wayland]
+media-libs/libsdl2 gles2
+
+# required by www-client/firefox[system-libvpx]
+media-libs/libvpx postproc
+
+# required by media-sound/pulseaudio[-daemon]
+media-sound/pulseaudio -alsa -gdbm -gtk -orc -ssl -udev -webrtc-aec
 
 # required by media-video/celluloid
 media-video/mpv libmpv
 
-# required by net-misc/remmina[rdp]
-net-misc/freerdp X
+# required by net-im/telegram-desktop
+sys-libs/zlib minizip
+
+# required by x11-libs/libxkbcommon[X]
+x11-libs/libxcb xkb

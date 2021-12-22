@@ -1,0 +1,30 @@
+# required by media-video/kooha
+gui-libs/gtk:4 X
+
+# required by gui-libs/gtk:4[X]
+# required by x11-libs/gtk+:3[X]
+media-libs/libepoxy X
+
+# required by media-libs/mesa[X]
+media-libs/libglvnd X
+
+# required by gnome-base/gnome-session
+# required by x11-wm/mutter
+media-libs/mesa X
+
+# required by net-misc/remmina[rdp]
+net-misc/freerdp X
+
+# required by gnome-base/gnome-session
+sys-apps/dbus X
+
+# required by www-client/firefox
+# required by x11-wm/mutter
+x11-libs/cairo X
+
+# required by www-client/firefox
+# required by x11-wm/mutter
+x11-libs/gtk+:3 X
+
+# required by x11-wm/mutter
+x11-libs/libxkbcommon X

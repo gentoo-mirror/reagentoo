@@ -1,4 +1,0 @@
-media-sound/pulseaudio -daemon -dbus -elogind -ipv6
-
-# REQUIRED_USE !daemon? ( !alsa !gdbm !gtk !orc !ssl !udev !webrtc-aec )
-media-sound/pulseaudio -alsa -gdbm -gtk -orc -ssl -udev -webrtc-aec
