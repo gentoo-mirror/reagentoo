@@ -22,3 +22,6 @@ gui-libs/gtk:4 X
 
 # required by media-video/celluloid
 media-video/mpv libmpv
+
+# required by net-misc/remmina[rdp]
+net-misc/freerdp X
