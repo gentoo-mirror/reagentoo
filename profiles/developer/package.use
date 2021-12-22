@@ -1,0 +1,12 @@
+app-emulation/qemu -pin-upstream-blobs
+dev-lang/rust nightly rls
+dev-util/gnome-builder -devhelp -git
+dev-vcs/git highlight
+sys-devel/gdb source-highlight
+sys-firmware/edk2-ovmf -binary
+sys-firmware/ipxe -binary
+sys-firmware/seabios -binary
+sys-firmware/sgabios -binary
+
+# required by dev-lang/rust[rls]
+dev-lang/rust rust-src
