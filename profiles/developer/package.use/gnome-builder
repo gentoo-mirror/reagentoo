@@ -5,3 +5,11 @@ dev-util/gnome-builder -devhelp -git
 # required by net-libs/webkit-gtk
 # required by dev-util/gnome-builder
 dev-ruby/bundler -doc
+
+# required by net-libs/webkit-gtk[gstreamer]
+# required by dev-util/gnome-builder
+media-libs/gst-plugins-base X
+
+# compilation fix
+# required by dev-util/gnome-builder
+net-libs/webkit-gtk X
