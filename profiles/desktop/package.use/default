@@ -6,22 +6,20 @@ app-misc/tracker -miners
 app-misc/tracker-miners -pdf -playlist -rss -taglib -tiff -xml
 dev-vcs/git -gnome-keyring
 gnome-base/gnome-shell -browser-extension
-gnome-base/gvfs mtp udisks
+gnome-base/gvfs mtp
 gnome-base/nautilus -previewer
-media-gfx/gthumb exif jpeg
 media-libs/libcanberra -gtk
 media-libs/libsndfile minimal
-media-sound/deadbeef aac cover-imlib2 ffmpeg gtk3 hotkeys mp3 notify vorbis
+media-sound/deadbeef hotkeys notify
 media-sound/pulseaudio -daemon -dbus -elogind -ipv6
-media-video/pipewire aac pipewire-alsa
-media-video/ffmpeg amr libass libaom mp3 opus theora vorbis x264 x265
+media-video/pipewire pipewire-alsa
+media-video/ffmpeg amr
 net-dialup/ppp -gtk
 net-im/telegram-desktop custom-api-id
 net-misc/modemmanager -qmi
 net-misc/networkmanager -wext
 net-misc/remmina rdp vnc
 www-plugins/ublock-origin firefox
-x11-libs/gdk-pixbuf jpeg
 
 # required by x11-misc/xdg-utils
 app-text/xmlto text
@@ -34,9 +32,6 @@ dev-libs/libdbusmenu gtk3
 
 # required by dev-qt/qtcore
 dev-libs/libpcre2 pcre16
-
-# required by net-im/telegram-desktop
-dev-qt/qtgui jpeg
 
 # required by media-libs/clutter[egl]
 media-libs/cogl gles2
