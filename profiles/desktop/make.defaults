@@ -2,7 +2,10 @@ ACCEPT_KEYWORDS="${ARCH} ~${ARCH}"
 
 # Base desktop USEs
 USE="${USE} -consolekit -cups -gtk2 -X -xv"
-USE="${USE} alsa dbus bluetooth cairo colord egl elogind gtk networkmanager policykit pulseaudio screencast udev usb v4l vaapi wayland"
+USE="${USE} alsa dbus bluetooth colord egl elogind gtk networkmanager policykit pulseaudio screencast udev udisks upower usb v4l vaapi wayland"
+
+# Multimedia related USEs
+USE="${USE} aac cairo exif ffmpeg jpeg libaom libass mp3 ogg opus vorbis x264 x265"
 
 # Gnome related USEs
 USE="${USE} -gnome-online-accounts"
