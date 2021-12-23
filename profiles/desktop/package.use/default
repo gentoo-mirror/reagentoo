@@ -22,7 +22,6 @@ net-misc/networkmanager -wext
 net-misc/remmina rdp vnc
 www-plugins/ublock-origin firefox
 x11-libs/gdk-pixbuf jpeg
-x11-misc/colord -gusb
 
 # required by x11-misc/xdg-utils
 app-text/xmlto text
