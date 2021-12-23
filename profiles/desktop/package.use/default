@@ -5,7 +5,6 @@ dev-qt/qtgui eglfs
 app-misc/tracker -miners
 app-misc/tracker-miners -pdf -playlist -rss -taglib -tiff -xml
 dev-vcs/git -gnome-keyring
-gnome-base/gnome-settings-daemon networkmanager
 gnome-base/gnome-shell -browser-extension
 gnome-base/gvfs mtp udisks
 gnome-base/nautilus -previewer
@@ -14,18 +13,16 @@ media-libs/libcanberra -gtk
 media-libs/libsndfile minimal
 media-sound/deadbeef aac cover-imlib2 ffmpeg gtk3 hotkeys mp3 notify vorbis
 media-sound/pulseaudio -daemon -dbus -elogind -ipv6
+media-video/pipewire aac pipewire-alsa
 media-video/ffmpeg amr libass libaom mp3 opus theora vorbis x264 x265
 net-dialup/ppp -gtk
 net-im/telegram-desktop custom-api-id
 net-misc/modemmanager -qmi
-net-misc/networkmanager bluetooth -wext
+net-misc/networkmanager -wext
 net-misc/remmina rdp vnc
 www-plugins/ublock-origin firefox
 x11-libs/gdk-pixbuf jpeg
 x11-misc/colord -gusb
-
-# required by app-text/evince
-app-text/poppler cairo
 
 # required by x11-misc/xdg-utils
 app-text/xmlto text
@@ -42,11 +39,11 @@ dev-libs/libpcre2 pcre16
 # required by net-im/telegram-desktop
 dev-qt/qtgui jpeg
 
-# required by gnome-base/gnome-shell
-gnome-base/gnome-control-center networkmanager
-
 # required by media-libs/clutter[egl]
 media-libs/cogl gles2
+
+# required by media-video/cheese
+media-libs/gst-plugins-base theora
 
 # required by www-client/firefox[system-png]
 media-libs/libpng apng
@@ -58,7 +55,7 @@ media-libs/libsdl2 gles2
 media-libs/libvpx postproc
 
 # required by media-sound/pulseaudio[-daemon]
-media-sound/pulseaudio -alsa -gdbm -gtk -orc -ssl -udev -webrtc-aec
+media-sound/pulseaudio -alsa -alsa-plugin -bluetooth -gdbm -gstreamer -gtk -orc -ssl -udev -webrtc-aec
 
 # required by media-video/celluloid
 media-video/mpv libmpv

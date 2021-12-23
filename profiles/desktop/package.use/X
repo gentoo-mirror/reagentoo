@@ -1,6 +1,17 @@
 # required by media-video/kooha
 gui-libs/gtk:4 X
 
+# required by media-libs/clutter-gst[X]
+# required by media-libs/clutter-gtk[X]
+media-libs/clutter X
+
+# required by media-libs/clutter[X]
+media-libs/clutter-gst X
+
+# required by media-libs/clutter[X]
+# required by x11-libs/gtk+:3[X]
+media-libs/clutter-gtk X
+
 # required by gui-libs/gtk:4[X]
 # required by x11-libs/gtk+:3[X]
 media-libs/libepoxy X
