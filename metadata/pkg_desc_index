@@ -20,7 +20,7 @@ media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-sound/spot 0.1.11 9999: spot
 media-video/glide 0.5.8 9999: Cross-platform media player based on GStreamer and GTK+
 media-video/kooha 2.0.1 9999: Elegantly record your screen
-net-im/telegram-desktop 3.3.0 9999: Official desktop client for Telegram
+net-im/telegram-desktop 3.4.2 9999: Official desktop client for Telegram
 net-irc/srain 1.3.0 9999: 
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-libs/tdlib 9999: Cross-platform library for building Telegram clients
