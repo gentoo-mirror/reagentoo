@@ -1,11 +1,9 @@
 app-editors/tau 0.12.0 9999: GTK frontend for the Xi text editor, written in Rust
 app-editors/xi-core 0.3.0 9999: A modern editor with a backend written in Rust
 app-editors/xi-gtk 9999: A GTK+ front-end for the Xi editor
-dev-cpp/asio 1.12.0 9999: Asynchronous Network Library
 dev-cpp/ethash 0.4.4 9999: C/C++ implementation of Ethash – the Ethereum Proof of Work algorithm
 dev-cpp/kashmir 9999: Dependency needed for net-libs/restbed
 dev-cpp/libff 0_p20180227 9999: C++ library for Finite Fields and Elliptic Curves
-dev-cpp/libjson-rpc-cpp 0.7.0: JSON-RPC (1.0 & 2.0) framework for C++
 dev-cpp/uri 0_p20180219 9999: Implements a generic URI parser, compatible with RFC 3986 and RFC 3987
 dev-util/binaryen 1.37.36 9999: Сompiler and toolchain infrastructure library for WebAssembly, written in C++
 dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash reporting system
@@ -14,7 +12,6 @@ gui-libs/libadwaita 1.0.0_alpha_rc4 9999: Building blocks for modern GNOME appli
 gui-libs/libhandy 0.0.13: Library with GTK widgets for mobile phones
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/drawing 0.8.5 9999: A drawing application for the GNOME desktop
-media-gfx/nvidia-texture-tools 9999: A set of cuda-enabled texture tools and compressors
 media-libs/google-webrtc 88.0.4324.79: Library that provides browsers and mobile applications with Real-Time Communications
 media-libs/hlslcc 9999: Cross compiles HLSL bytecode to GLSL or GLSL ES
 media-sound/spot 0.1.11 9999: spot
@@ -25,7 +22,6 @@ net-irc/srain 1.3.0 9999:
 net-libs/restbed 4.6 9999: For applications that require seamless and secure communication over HTTP
 net-libs/tdlib 9999: Cross-platform library for building Telegram clients
 net-misc/cargo-local-serve 9999: Serve a local, offline, clone of crates.io
-net-p2p/cpp-ethereum 0_p20180427 9999: Ethereum and other technologies to provide a decentralised application framework
 net-p2p/etherwall 2.4.0 9999: A free software wallet/front-end for Ethereum
 net-p2p/ethminer 0.18.0 9999: Ethereum miner with CUDA and stratum support
 net-p2p/evmjit 0_p20180411 9999: A library for just-in-time compilation of Ethereum EVM code
@@ -41,7 +37,6 @@ sci-electronics/eagle 8.5.2: Autodesk EAGLE schematic and printed circuit board 
 sys-apps/fstrimDaemon 1.1.1 9999: Shell script daemon for fstrim to maintain ssd drive performance
 sys-apps/paxctld 1.2.1-r1: PaX flags maintenance daemon
 sys-boot/egrub 9999: GRUB wrappers and automation scripts
-sys-firmware/edk2-ovmf 9999: EDK II Open Source UEFI Firmware
 sys-libs/libcpuid 0.4.0 9999: Small C library for x86 CPU detection and feature extraction
 www-plugins/ublock-origin 1.25.2 9999: The Fastest, Most-Powerful Ad Blocker
 x11-misc/sunflower 9999: Small and highly customizable twin-panel file manager with plugin-support
