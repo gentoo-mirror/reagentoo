@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
 	aho-corasick-0.7.18
@@ -228,7 +228,7 @@ BDEPEND=""
 
 src_prepare() {
 	default
-	sed -i '/export[[:space:]]\+CARGO_HOME/d' build-aux/cargo.sh || die
+	sed -i '/export.*CARGO_HOME/d' build-aux/cargo.sh || die
 }
 
 src_configure() {
