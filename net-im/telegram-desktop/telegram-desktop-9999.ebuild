@@ -262,8 +262,8 @@ src_prepare() {
 tg_owt_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
-		-DTG_OWT_USE_PROTOBUF=ON
 		-DTG_OWT_BUILD_AUDIO_BACKENDS=OFF
+		-DTG_OWT_USE_PROTOBUF=ON
 	)
 
 	BUILD_DIR="${TG_OWT_DIR}/out" CMAKE_USE_DIR="${TG_OWT_DIR}" \
