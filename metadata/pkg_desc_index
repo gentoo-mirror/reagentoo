@@ -8,7 +8,6 @@ dev-cpp/uri 0_p20180219 9999: Implements a generic URI parser, compatible with R
 dev-util/binaryen 1.37.36 9999: Сompiler and toolchain infrastructure library for WebAssembly, written in C++
 dev-util/google-breakpad 0_p20200104 9999: An open-source multi-platform crash reporting system
 games-util/ds4drv 0.5.1 9999: A Sony DualShock 4 userspace driver for Linux
-gui-libs/libadwaita 1.0.0_alpha_rc4 9999: Building blocks for modern GNOME applications
 gui-libs/libhandy 0.0.13: Library with GTK widgets for mobile phones
 media-gfx/NvTriStrip 1.0 9999: NVTriStrip is a library for vertex cache aware stripification of geometry
 media-gfx/drawing 0.8.5 9999: A drawing application for the GNOME desktop

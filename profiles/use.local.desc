@@ -3,7 +3,6 @@
 # * generated automatically using pmaint *
 
 app-editors/xi-core:syntect - Enable syntax highlighting plugin
-gui-libs/libadwaita:inspector - Build and install the libadwaita GtkInspector module
 gui-libs/libhandy:glade - Install module and catalog for dev-util/glade
 media-libs/google-webrtc:X - Enable X11 desktop capture
 media-libs/google-webrtc:absl - Install abseil-cpp headers
