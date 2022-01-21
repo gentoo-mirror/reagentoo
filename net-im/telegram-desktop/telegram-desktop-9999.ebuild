@@ -178,7 +178,18 @@ src_unpack() {
 		return
 	fi
 
-	unpack ${MY_P}.tar.gz
+	unpack "${MY_P}.tar.gz"
+
+	local commit=$(
+		cat ${MY_P}/Telegram/build/docker/centos_env/Dockerfile \
+			| sed '/^RUN.*git.*remote.*tg_owt/,/RUN.*git.*fetch/!d' \
+			| tail -n1 | sed 's/.*[[:space:]]\([0-9a-zA-Z]*\)$/\1/'
+	)
+
+	if [[ "${commit}" != "${TG_OWT_COMMIT}" ]]
+	then
+		die "You should update \${TG_OWT_COMMIT} to ${commit}"
+	fi
 
 	mkdir Libraries || die
 	cd Libraries || die
@@ -226,11 +237,16 @@ src_prepare() {
 		cmake/external/crash_reports/breakpad/CMakeLists.txt || die
 
 	sed -i -e 's:DESKTOP_APP_USE_PACKAGED:False:' \
-		cmake/external/{expected,gsl,ranges,rlottie,variant,xxhash}/CMakeLists.txt \
+		cmake/external/{expected,gsl,ranges,variant,xxhash}/CMakeLists.txt \
 		Telegram/cmake/lib_tgvoip.cmake || die
 
 	sed -i -e 's:find_package.*tg_owt:\0 PATHS ${libs_loc}/tg_owt/out:' \
 		cmake/external/webrtc/CMakeLists.txt || die
+
+	sed -i \
+		-e 's/Version=1.5/Version=1.0/g' \
+		-e '/SingleMainWindow/d' \
+		lib/xdg/telegramdesktop.desktop || die
 
 	# TDESKTOP_API_{ID,HASH} related:
 
@@ -283,6 +299,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DDESKTOP_APP_QT6=OFF
 		-DDESKTOP_APP_USE_PACKAGED=ON
+		-DDESKTOP_APP_USE_PACKAGED_RLOTTIE=OFF
 		-DLIBTGVOIP_DISABLE_PULSEAUDIO=OFF
 
 		-DDESKTOP_APP_DISABLE_CRASH_REPORTS=$(usex !crashreporter)
