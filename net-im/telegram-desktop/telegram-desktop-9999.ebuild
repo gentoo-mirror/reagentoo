@@ -32,7 +32,7 @@ else
 	QTBASE_VER="5.15.2"
 
 	LIBYUV_COMMIT="ad890067f661dc747a975bc55ba3767fe30d4452"
-	TG_OWT_COMMIT="b02478677baac6d563589f216800ff9cea0fd65c"
+	TG_OWT_COMMIT="347400dc2377b16be702397ff8db44d5739d2650"
 
 	SRC_URI="
 		https://github.com/telegramdesktop/${MY_PN}/releases/download/v${PV}/${MY_P}.tar.gz
@@ -181,7 +181,7 @@ src_unpack() {
 	unpack "${MY_P}.tar.gz"
 
 	local commit=$(
-		cat ${MY_P}/Telegram/build/docker/centos_env/Dockerfile \
+		cat "${MY_P}"/Telegram/build/docker/centos_env/Dockerfile \
 			| sed '/^RUN.*git.*remote.*tg_owt/,/RUN.*git.*fetch/!d' \
 			| tail -n1 | sed 's/.*[[:space:]]\([0-9a-zA-Z]*\)$/\1/'
 	)
