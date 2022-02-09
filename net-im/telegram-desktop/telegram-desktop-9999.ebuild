@@ -256,21 +256,32 @@ src_prepare() {
 	sed -i -e '/TDESKTOP_API_[A-Z]*/d' \
 		Telegram/CMakeLists.txt || die
 
-	if use !custom-api-id
+	if use custom-api-id
 	then
-		sed -i -e '/#error.*API_ID.*API_HASH/d' \
-			Telegram/SourceFiles/config.h || die
-	else
 		local -A api_defs=(
 			[ID]="#define TDESKTOP_API_ID ${TDESKTOP_API_ID}"
 			[HASH]="#define TDESKTOP_API_HASH ${TDESKTOP_API_HASH}"
 		)
+	else
+		local -A api_defs=(
+			[ID]=$(
+				cat snap/snapcraft.yaml \
+					| ( grep TDESKTOP_API_ID || die ) \
+					| sed 's:.*=\(.*\):#define TDESKTOP_API_ID \1:'
+			)
 
-		sed -i \
-			-e "/#if.*defined.*TDESKTOP_API_ID/i ${api_defs[ID]}" \
-			-e "/#if.*defined.*TDESKTOP_API_HASH/i ${api_defs[HASH]}" \
-			Telegram/SourceFiles/config.h || die
+			[HASH]=$(
+				cat snap/snapcraft.yaml \
+					| ( grep TDESKTOP_API_HASH || die ) \
+					| sed 's:.*=\(.*\):#define TDESKTOP_API_HASH \1:'
+			)
+		)
 	fi
+
+	sed -i \
+		-e "/#if.*defined.*TDESKTOP_API_ID/i ${api_defs[ID]}" \
+		-e "/#if.*defined.*TDESKTOP_API_HASH/i ${api_defs[HASH]}" \
+		Telegram/SourceFiles/config.h || die
 
 	cmake_src_prepare
 }
