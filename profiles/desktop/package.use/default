@@ -15,7 +15,6 @@ media-sound/pulseaudio -daemon -dbus -elogind -ipv6
 media-video/pipewire pipewire-alsa
 media-video/ffmpeg amr
 net-dialup/ppp -gtk
-net-im/telegram-desktop custom-api-id
 net-misc/modemmanager -qmi
 net-misc/networkmanager -wext
 net-misc/remmina rdp vnc
