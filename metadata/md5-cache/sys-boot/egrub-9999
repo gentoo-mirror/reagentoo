@@ -9,5 +9,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=net-misc/rsync sys-apps/gptfdisk sys-apps/util-linux sys-block/parted sys-boot/grub sys-fs/dosfstools sys-fs/f2fs-tools
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=ccbd009fa0e77d31fbfa7da81f2bec71
