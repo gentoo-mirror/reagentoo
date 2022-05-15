@@ -109,6 +109,17 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
+	"${FILESDIR}/tdesktop-3.5.2-musl.patch"
+	"${FILESDIR}/tdesktop-3.6.0-support-ffmpeg5.patch"
+	"${FILESDIR}/tdesktop-3.6.1-fix-kwayland-5.93.patch"
+	"${FILESDIR}/tdesktop-3.6.1-fix-use-after-free.patch"
+)
+
+# Current desktop-file-utils-0.26 does not understand Version=1.5
+QA_DESKTOP_FILE="usr/share/applications/${PN}.desktop"
+
 QTBASE_DIR="${WORKDIR}"/Libraries/qtbase
 TG_OWT_DIR="${WORKDIR}"/Libraries/tg_owt
 
@@ -219,6 +230,8 @@ qt_prepare() {
 }
 
 tg_owt_prepare() {
+	local PATCHES=
+
 	sed -i \
 		-e '/dcsctp_transport/d' \
 		-e '/include.*libopenh264/d' \
@@ -242,11 +255,6 @@ src_prepare() {
 
 	sed -i -e 's:find_package.*tg_owt:\0 PATHS ${libs_loc}/tg_owt/out:' \
 		cmake/external/webrtc/CMakeLists.txt || die
-
-	sed -i \
-		-e 's/Version=1.5/Version=1.0/g' \
-		-e '/SingleMainWindow/d' \
-		lib/xdg/telegramdesktop.desktop || die
 
 	# TDESKTOP_API_{ID,HASH} related:
 
