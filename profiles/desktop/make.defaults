@@ -1,7 +1,7 @@
 ACCEPT_KEYWORDS="${ARCH} ~${ARCH}"
 
 # Base desktop USEs
-USE="${USE} -consolekit -cups -gtk2 -X -xv"
+USE="${USE} -consolekit -cups -gtk2 -webkit -X -xv"
 USE="${USE} alsa dbus bluetooth colord egl elogind gtk networkmanager policykit pulseaudio screencast udev udisks upower usb v4l vaapi wayland"
 
 # Multimedia related USEs
