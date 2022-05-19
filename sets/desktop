@@ -19,10 +19,9 @@ media-gfx/gnome-screenshot
 media-gfx/gthumb
 media-sound/deadbeef
 media-video/celluloid
-media-video/kooha
 net-misc/networkmanager
 net-misc/remmina
-net-misc/youtube-dl
+net-misc/yt-dlp
 net-p2p/transmission
 sys-apps/firejail
 x11-themes/arc-theme
