@@ -117,6 +117,11 @@ PATCHES=(
 	"${FILESDIR}/tdesktop-3.6.1-fix-use-after-free.patch"
 )
 
+TG_OWT_PATCHES=(
+	"${FILESDIR}/tg_owt-0_pre20220209-gcc-12-cstddef.patch"
+	"${FILESDIR}/tg_owt-0_pre20220209-gcc-12-cstdint.patch"
+)
+
 # Current desktop-file-utils-0.26 does not understand Version=1.5
 QA_DESKTOP_FILE="usr/share/applications/${PN}.desktop"
 
@@ -230,7 +235,7 @@ qt_prepare() {
 }
 
 tg_owt_prepare() {
-	local PATCHES=
+	local PATCHES=( "${TG_OWT_PATCHES[@]}" )
 
 	sed -i \
 		-e '/dcsctp_transport/d' \
@@ -238,8 +243,10 @@ tg_owt_prepare() {
 		-e '/include.*libvpx/d' \
 		"${TG_OWT_DIR}"/CMakeLists.txt || die
 
+	pushd "${TG_OWT_DIR}" >/dev/null || die
 	BUILD_DIR="${TG_OWT_DIR}/out" CMAKE_USE_DIR="${TG_OWT_DIR}" \
 		cmake_src_prepare
+	popd >/dev/null || die
 }
 
 src_prepare() {
