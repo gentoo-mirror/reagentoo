@@ -29,16 +29,19 @@ else
 	MY_PN="tdesktop"
 	MY_P="${MY_PN}-${PV}-full"
 
+	CRC32C_VER="1.1.2"
 	QTBASE_VER="5.15.2"
 
-	LIBYUV_COMMIT="ad890067f661dc747a975bc55ba3767fe30d4452"
-	TG_OWT_COMMIT="347400dc2377b16be702397ff8db44d5739d2650"
+	LIBYUV_COMMIT="a04e4f87fbf40405707b1d0ae9fcba8fc93f7856"
+	TG_OWT_COMMIT="442d5bb593c0ae314960308d78f2016ad1f80c3e"
 
 	SRC_URI="
 		https://github.com/telegramdesktop/${MY_PN}/releases/download/v${PV}/${MY_P}.tar.gz
+
+		https://github.com/google/crc32c/archive/refs/tags/${CRC32C_VER}.tar.gz -> crc32c-${CRC32C_VER}.tar.gz
 		https://download.qt.io/official_releases/qt/${QTBASE_VER%.*}/${QTBASE_VER}/submodules/qtbase-everywhere-src-${QTBASE_VER}.tar.xz
 
-		https://archive.org/download/libyuv-${LIBYUV_COMMIT}.tar/libyuv-${LIBYUV_COMMIT}.tar.gz -> libyuv-${LIBYUV_COMMIT::7}.tar.gz
+		https://gitlab.com/chromiumsrc/libyuv/-/archive/${LIBYUV_COMMIT}/libyuv-${LIBYUV_COMMIT}.tar.gz -> libyuv-${LIBYUV_COMMIT::7}.tar.gz
 		https://github.com/desktop-app/tg_owt/archive/${TG_OWT_COMMIT}.tar.gz -> tg_owt-${TG_OWT_COMMIT::7}.tar.gz
 	"
 
@@ -112,9 +115,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
 	"${FILESDIR}/tdesktop-3.5.2-musl.patch"
-	"${FILESDIR}/tdesktop-3.6.0-support-ffmpeg5.patch"
-	"${FILESDIR}/tdesktop-3.6.1-fix-kwayland-5.93.patch"
-	"${FILESDIR}/tdesktop-3.6.1-fix-use-after-free.patch"
+	"${FILESDIR}/tdesktop-4.0.2-fix-gcc12-cstdint.patch"
 )
 
 TG_OWT_PATCHES=(
@@ -181,8 +182,13 @@ git_unpack() {
 
 	git-r3_src_unpack
 
-	EGIT_REPO_URI="https://chromium.googlesource.com/libyuv/libyuv"
+	EGIT_REPO_URI="https://gitlab.com/chromiumsrc/libyuv"
 	EGIT_CHECKOUT_DIR="${TG_OWT_DIR}"/src/third_party/libyuv
+
+	git-r3_src_unpack
+
+	EGIT_REPO_URI="https://github.com/google/crc32c"
+	EGIT_CHECKOUT_DIR="${TG_OWT_DIR}"/src/third_party/crc32c/src
 
 	git-r3_src_unpack
 }
@@ -198,8 +204,8 @@ src_unpack() {
 
 	local commit=$(
 		cat "${MY_P}"/Telegram/build/docker/centos_env/Dockerfile \
-			| sed '/^RUN.*git.*remote.*tg_owt/,/RUN.*git.*fetch/!d' \
-			| tail -n1 | sed 's/.*[[:space:]]\([0-9a-zA-Z]*\)$/\1/'
+			| sed '/^RUN.*git.*init.*tg_owt/,/git.*fetch/!d' \
+			| tail -n1 | sed 's/.*\([0-9a-zA-Z]\{40\}\).*/\1/'
 	)
 
 	if [[ "${commit}" != "${TG_OWT_COMMIT}" ]]
@@ -216,8 +222,15 @@ src_unpack() {
 	unpack "tg_owt-${TG_OWT_COMMIT::7}.tar.gz"
 	mv "tg_owt-${TG_OWT_COMMIT}" "tg_owt" || die
 
-	cd "tg_owt/src/third_party/libyuv" || die
+	cd "tg_owt/src/third_party" || die
+
 	unpack "libyuv-${LIBYUV_COMMIT::7}.tar.gz"
+	rmdir "libyuv" || die
+	mv "libyuv-${LIBYUV_COMMIT}" "libyuv" || die
+
+	unpack "crc32c-${CRC32C_VER}.tar.gz"
+	rmdir "crc32c/src" || die
+	mv "crc32c-${CRC32C_VER}" "crc32c/src" || die
 }
 
 qt_prepare() {
@@ -237,15 +250,14 @@ qt_prepare() {
 tg_owt_prepare() {
 	local PATCHES=( "${TG_OWT_PATCHES[@]}" )
 
-	sed -i \
-		-e '/dcsctp_transport/d' \
-		-e '/include.*libopenh264/d' \
-		-e '/include.*libvpx/d' \
-		"${TG_OWT_DIR}"/CMakeLists.txt || die
-
 	pushd "${TG_OWT_DIR}" >/dev/null || die
+
+	sed -i -e '/include.*libopenh264/d' \
+		CMakeLists.txt || die
+
 	BUILD_DIR="${TG_OWT_DIR}/out" CMAKE_USE_DIR="${TG_OWT_DIR}" \
 		cmake_src_prepare
+
 	popd >/dev/null || die
 }
 
@@ -262,6 +274,9 @@ src_prepare() {
 
 	sed -i -e 's:find_package.*tg_owt:\0 PATHS ${libs_loc}/tg_owt/out:' \
 		cmake/external/webrtc/CMakeLists.txt || die
+
+	sed -i -e '/find_package/ s:Qt6::' \
+		cmake/external/qt/package.cmake || die
 
 	# TDESKTOP_API_{ID,HASH} related:
 
@@ -316,6 +331,7 @@ src_configure() {
 	local mycxxflags=(
 		-Wno-array-bounds
 		-Wno-free-nonheap-object
+		-Wno-uninitialized
 	)
 
 	append-cxxflags ${mycxxflags[@]}
@@ -323,7 +339,6 @@ src_configure() {
 	tg_owt_configure
 
 	local mycmakeargs=(
-		-DDESKTOP_APP_QT6=OFF
 		-DDESKTOP_APP_USE_PACKAGED=ON
 		-DDESKTOP_APP_USE_PACKAGED_RLOTTIE=OFF
 		-DLIBTGVOIP_DISABLE_PULSEAUDIO=OFF
