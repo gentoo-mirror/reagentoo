@@ -19,14 +19,9 @@ net-im/telegram-desktop:alsa - Adds support for ALSA audio input/output
 net-im/telegram-desktop:crashreporter - Enable crash reporter for bugs
 net-im/telegram-desktop:custom-api-id - Use custom API ID and API HASH
 net-im/telegram-desktop:dbus - Enable D-Bus notifiications and system tray support
-net-im/telegram-desktop:effects - Enable OpenAL effects
 net-im/telegram-desktop:enchant - Enable spellchecking using app-text/enchant
-net-im/telegram-desktop:fontconfig - Use custom fonts.conf
-net-im/telegram-desktop:gtk - Enable support for GTK+
+net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (overrides fontconfig)
 net-im/telegram-desktop:hunspell - Enable spellchecking using app-text/hunspell
-net-im/telegram-desktop:pulseaudio - Adds support for PulseAudio audio input/output
-net-im/telegram-desktop:screencast - Enable support for remote desktop and screen cast using media-video/pipewire
-net-im/telegram-desktop:test - Build and run the test-suite
 net-libs/tdlib:doc - Install doxygen developer documentation
 net-libs/tdlib:java - Add Java-bindings
 net-p2p/ethminer:apicore - Build with API Server support
