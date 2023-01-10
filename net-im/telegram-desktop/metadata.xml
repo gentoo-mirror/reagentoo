@@ -9,13 +9,13 @@
 		<flag name="crashreporter">Enable crash reporter for bugs</flag>
 		<flag name="custom-api-id">Use custom API ID and API HASH</flag>
 		<flag name="dbus">Enable D-Bus notifiications and system tray support</flag>
-		<flag name="effects">Enable OpenAL effects</flag>
 		<flag name="enchant">Enable spellchecking using <pkg>app-text/enchant</pkg></flag>
-		<flag name="fontconfig">Use custom fonts.conf</flag>
-		<flag name="gtk">Enable support for GTK+</flag>
+		<flag name="fonts">Use builtin patched copy of open-sans fonts (overrides fontconfig)</flag>
 		<flag name="hunspell">Enable spellchecking using <pkg>app-text/hunspell</pkg></flag>
-		<flag name="pulseaudio">Adds support for PulseAudio audio input/output</flag>
-		<flag name="screencast">Enable support for remote desktop and screen cast using <pkg>media-video/pipewire</pkg></flag>
-		<flag name="test">Build and run the test-suite</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">telegramdesktop/tdesktop</remote-id>
+		<bugs-to>https://github.com/telegramdesktop/tdesktop/issues</bugs-to>
+		<changelog>https://github.com/telegramdesktop/tdesktop/releases</changelog>
+	</upstream>
 </pkgmetadata>

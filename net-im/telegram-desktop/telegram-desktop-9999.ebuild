@@ -29,15 +29,17 @@ else
 	MY_PN="tdesktop"
 	MY_P="${MY_PN}-${PV}-full"
 
+	ABSEIL_VER="20220623.1"
 	CRC32C_VER="1.1.2"
 	QTBASE_VER="5.15.2"
 
-	LIBYUV_COMMIT="a04e4f87fbf40405707b1d0ae9fcba8fc93f7856"
-	TG_OWT_COMMIT="442d5bb593c0ae314960308d78f2016ad1f80c3e"
+	LIBYUV_COMMIT="00950840d1c9bcbb3eb6ebc5aac5793e71166c8b"
+	TG_OWT_COMMIT="5098730b9eb6173f0b52068fe2555b7c1015123a"
 
 	SRC_URI="
 		https://github.com/telegramdesktop/${MY_PN}/releases/download/v${PV}/${MY_P}.tar.gz
 
+		https://github.com/abseil/abseil-cpp/archive/refs/tags/${ABSEIL_VER}.tar.gz -> abseil-cpp-${ABSEIL_VER}.tar.gz
 		https://github.com/google/crc32c/archive/refs/tags/${CRC32C_VER}.tar.gz -> crc32c-${CRC32C_VER}.tar.gz
 		https://download.qt.io/official_releases/qt/${QTBASE_VER%.*}/${QTBASE_VER}/submodules/qtbase-everywhere-src-${QTBASE_VER}.tar.xz
 
@@ -51,7 +53,7 @@ fi
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-IUSE="alsa crashreporter custom-api-id +dbus enchant +hunspell wayland +X"
+IUSE="alsa crashreporter custom-api-id +dbus enchant +fonts +hunspell wayland +X"
 
 REQUIRED_USE="
 	enchant? ( !hunspell )
@@ -60,7 +62,8 @@ REQUIRED_USE="
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
-	dev-cpp/abseil-cpp:=[cxx17(+)]
+	>=dev-cpp/abseil-cpp-20220623.1:=
+	dev-libs/crc32c
 	dev-libs/glib:2
 	dev-libs/jemalloc:=[-lazy-lock]
 	dev-libs/libevent:=
@@ -72,6 +75,7 @@ RDEPEND="
 	>=dev-qt/qtnetwork-5.15:5[ssl]
 	>=dev-qt/qtsvg-5.15:5
 	>=dev-qt/qtwidgets-5.15:5[png,X?]
+	kde-frameworks/kcoreaddons:=
 	media-fonts/open-sans
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo:=
@@ -95,14 +99,9 @@ RDEPEND="
 	x11-libs/libXtst
 	alsa? ( media-libs/alsa-lib )
 	crashreporter? ( dev-util/google-breakpad )
-	dbus? (
-		dev-cpp/glibmm:2
-		dev-qt/qtdbus:5
-		dev-libs/libdbusmenu-qt[qt5(+)]
-	)
+	dbus? ( dev-cpp/glibmm:2.68 )
 	enchant? ( app-text/enchant:= )
 	hunspell? ( >=app-text/hunspell-1.7:= )
-	wayland? ( kde-frameworks/kwayland:= )
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}"
@@ -113,9 +112,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
-	"${FILESDIR}/tdesktop-3.5.2-musl.patch"
-	"${FILESDIR}/tdesktop-4.0.2-fix-gcc12-cstdint.patch"
+	"${FILESDIR}/tdesktop-4.3.4-qt5-incompatibility-2.patch"
+	"${FILESDIR}/tdesktop-4.4.1-fix-dupe-main-decl.patch"
 )
 
 TG_OWT_PATCHES=(
@@ -181,16 +179,6 @@ git_unpack() {
 	EGIT_CHECKOUT_DIR="${TG_OWT_DIR}"
 
 	git-r3_src_unpack
-
-	EGIT_REPO_URI="https://gitlab.com/chromiumsrc/libyuv"
-	EGIT_CHECKOUT_DIR="${TG_OWT_DIR}"/src/third_party/libyuv
-
-	git-r3_src_unpack
-
-	EGIT_REPO_URI="https://github.com/google/crc32c"
-	EGIT_CHECKOUT_DIR="${TG_OWT_DIR}"/src/third_party/crc32c/src
-
-	git-r3_src_unpack
 }
 
 src_unpack() {
@@ -224,13 +212,17 @@ src_unpack() {
 
 	cd "tg_owt/src/third_party" || die
 
-	unpack "libyuv-${LIBYUV_COMMIT::7}.tar.gz"
-	rmdir "libyuv" || die
-	mv "libyuv-${LIBYUV_COMMIT}" "libyuv" || die
+	unpack "abseil-cpp-${ABSEIL_VER}.tar.gz"
+	rmdir "abseil-cpp" || die
+	mv "abseil-cpp-${ABSEIL_VER}" "abseil-cpp" || die
 
 	unpack "crc32c-${CRC32C_VER}.tar.gz"
 	rmdir "crc32c/src" || die
 	mv "crc32c-${CRC32C_VER}" "crc32c/src" || die
+
+	unpack "libyuv-${LIBYUV_COMMIT::7}.tar.gz"
+	rmdir "libyuv" || die
+	mv "libyuv-${LIBYUV_COMMIT}" "libyuv" || die
 }
 
 qt_prepare() {
@@ -349,6 +341,7 @@ src_configure() {
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
+		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)
 		-DLIBTGVOIP_DISABLE_ALSA=$(usex !alsa)
 	)
 
