@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.9.16:3.9 ) >=dev-util/gn-0.1807 >=dev-util/ninja-1.7.2 virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.9.16-r1:3.9 ) >=dev-util/gn-0.1807 >=dev-util/ninja-1.7.2 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare pretend setup unpack
 DEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0= media-libs/libjpeg-turbo:= >=media-libs/openh264-1.6.0:= >=media-libs/opus-1.3.1:= >=media-video/ffmpeg-4:= sys-libs/zlib:=[minizip] libevent? ( dev-libs/libevent:= ) pipewire? ( dev-libs/glib:= media-video/pipewire:0/0.2 ) pulseaudio? ( media-sound/pulseaudio:= ) x265? ( media-libs/x265:= ) X? ( x11-libs/libX11:= x11-libs/libXcomposite:= x11-libs/libXdamage:= x11-libs/libXext:= x11-libs/libXfixes:= x11-libs/libXrender:= x11-libs/libXrandr:= )
 DESCRIPTION=Library that provides browsers and mobile applications with Real-Time Communications
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/openssl:0= >=media-libs/alsa-lib-1.0.19:= media-libs/freetype:=
 REQUIRED_USE=!owt? ( !x265 )
 SLOT=0
 SRC_URI=https://commondatastorage.googleapis.com/chromium-browser-official/chromium-88.0.4324.79.tar.xz https://github.com/open-webrtc-toolkit/owt-deps-webrtc/archive/05d78cc78a30bd97e6411b8180b4dd24d6027efa.tar.gz -> owt-deps-webrtc-05d78cc.tar.gz
-_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=4812f03046523f44491c90efb21e6695
